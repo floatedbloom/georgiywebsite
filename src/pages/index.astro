@@ -64,21 +64,36 @@ import Card from '../components/Card.astro';
 				</div>
 			</div>
 			<script>
-				const openButton = document.getElementById("open_popup");
-				const popup = document.getElementById("popup");
-				const closeButton = document.getElementById("close_popup");
-				const date = document.getElementById("date");
-	
-				openButton.addEventListener('click', function() {
-					const current_date = new Date();
-					const string_date = current_date.toString();
-					date.textContent = string_date;
-	
-					popup.style.display = "block";
-				});
-				closeButton.addEventListener('click', function() {
-					popup.style.display = "none";
-				});
+				// Assuming that the IDs you are using exist in your HTML file
+				const openButton = document.getElementById("open_popup") as HTMLButtonElement | null;
+				const popup = document.getElementById("popup") as HTMLDivElement | null;
+				const closeButton = document.getElementById("close_popup") as HTMLButtonElement | null;
+				const date = document.getElementById("date") as HTMLSpanElement | null;
+
+				if (openButton && popup && closeButton && date) {
+					openButton.addEventListener('click', function () {
+						const current_date = new Date();
+						const string_date = current_date.toString();
+						if (date) {
+							date.textContent = string_date;
+						}
+
+						if (popup) {
+							popup.style.display = "block";
+						}
+					});
+
+					if (closeButton) {
+						closeButton.addEventListener('click', function () {
+							if (popup) {
+								popup.style.display = "none";
+							}
+						});
+					}
+				} else {
+					console.error("One or more elements not found");
+				}
+
 			</script>
 	
 			<p></p>
