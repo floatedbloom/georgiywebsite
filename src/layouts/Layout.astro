@@ -21,17 +21,6 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
@@ -90,17 +79,22 @@ const { title } = Astro.props;
 
 	.close:hover,
 	.close:focus {
-		color: black;
+		color: rgb(255, 255, 255);
 		text-decoration: none;
 		cursor: pointer;
 	}
 	
+	:root {
+	--accent-gradient: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #f3e1e1); /* Adjusted gradient colors */
+	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+		background-size: 200%; /* Reduced background size for a less harsh effect */
+		background-position: 50%; /* Center the gradient for a smoother transition */
+		font-size: 1.2em; /* Optional: Adjust font size */
+		font-weight: bold; /* Optional: Adjust font weight */
 	}
 	.list-group {
 		display: flex;
@@ -145,6 +139,18 @@ const { title } = Astro.props;
 	.list-group-item.active:hover, 
 	.list-group-item.active:focus {
 		background-color: #0056b3;
+	}
+	.box-thing {
+		border: 2px solid #000; /* Border around the text */
+		padding: 20px; /* Padding inside the box */
+		border-radius: 10px; /* Rounded corners */
+		background: linear-gradient(135deg, #f3f3f3, #e7e7e7); /* Background gradient */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle 3D effect */
+		font-family: Arial, sans-serif; /* Font styling */
+		margin: 20px auto; /* Center the box and add margin */
+		width: 80%; /* Set the width of the box */
+		max-width: 600px; /* Maximum width of the box */
+		text-align: justify; /* Justify the text */
 	}
 
 	/* Responsive adjustments */
