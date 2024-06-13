@@ -34,8 +34,6 @@ import Card from '../components/Card.astro';
 			</defs>
 		</svg>
 		<h1>Welcome to <span class="central text-gradient">George's Homepage </span></h1>
-		<a href="/blog" class="central btn btn-outline-secondary btn-sm">Blog</a>
-        <a href="/about" class="central btn btn-outline-secondary btn-sm">About</a>
 		<head>
 			<meta name="viewport" content="initial-scale=1, width=device-width-1">
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -97,91 +95,17 @@ import Card from '../components/Card.astro';
 					line-height: 1.6;
 					margin: 0;
 					padding: 0;
-					background-color: #f0f0f0; /* Set background color to black */	
+					background-color: #443f3f; /* Set background color to black */	
 					color: #a2f2f8; /* Set text color to bluish */
-				}
-				.custom-body {
-					margin: 0;
-					font-family: var(--bs-body-font-family);
-					font-size: var(--bs-body-font-size);
-					font-weight: var(--bs-body-font-weight);
-					line-height: var(--bs-body-line-height);
-					color: var(--bs-body-color);
-					text-align: var(--bs-body-text-align);
-					background-color: var(--bs-body-bg);
-					-webkit-text-size-adjust: 100%;
-					-webkit-tap-highlight-color: transparent;
 				}
 			</style>
 		</head>
-		<body class="custom-body">
-			<p></p>
-			<h3 class="ftimes central">My Hobbies</h3>
-			<div class="list-group central">
-				<a href="/pvz" class="list-group-item list-group-item-action">Plants vs. Zombies</a>
-				<a href="/chess" class="list-group-item list-group-item-action">Chess</a>
-				<a href="/tennis" class="list-group-item list-group-item-action">Tennis</a>
-			</div>
-			<p></p>
-			<h3 class="ftimes centered underline indigo central">Current Date</h3>
-			<p></p>
-			<div class="content-container">
-				<div class="d-grid gap-2 col-6 mx-auto central">
-				  <button class="btn btn-primary" type="button" id="open_popup">Give me the date</button>
-				</div>
-			</div>
-			<div id="popup" class="popup">
-				<div class="popup-content">
-					<span class="close" id="close_popup">&times;</span>
-					<h2 class="central">Here is the date</h2>
-					<p class="central">The date is   <var id="date">___</var></p>
-				</div>
-			</div>
-			<script>
-				// Get the elements
-				const openButton = document.getElementById("open_popup") as HTMLButtonElement | null;
-				const popup = document.getElementById("popup") as HTMLDivElement | null;
-				const closeButton = document.getElementById("close_popup") as HTMLSpanElement | null;
-				const dateElement = document.getElementById("date") as HTMLSpanElement | null;
-				const contentContainer = document.querySelector('.content-container') as HTMLDivElement | null;
-
-				// Hide the popup initially
-				if (popup) {
-				popup.style.display = "none";
-				}
-
-				// Check if all elements exist
-				if (openButton && popup && closeButton && dateElement && contentContainer) {
-				openButton.addEventListener('click', function () {
-					const currentDate = new Date();
-					const stringDate = currentDate.toString();
-					dateElement.textContent = stringDate;
-					popup.style.display = "flex"; // Show the popup
-					contentContainer.style.filter = "blur(5px)"; // Blur the background
-				});
-
-				closeButton.addEventListener('click', function () {
-					popup.style.display = "none"; // Hide the popup
-					contentContainer.style.filter = "none"; // Remove the blur effect
-				});
-
-				// Close the popup if the user clicks outside of it
-				window.addEventListener('click', function(event) {
-					if (event.target === popup) {
-					popup.style.display = "none";
-					contentContainer.style.filter = "none";
-					}
-				});
-				} else {
-				console.error("One or more elements not found");
-				}
-			</script>
-	
-			<p></p>
-			<div>
-				<h4 class="ftimes centered grey central">Contact Me</h4>
-					<h5 class="centered central"><a href="mailto:georgelapin23@gmail.com">Email</a></h5>
-			</div>
+		<body class="body">
+			<a href="/hobbies" class="central btn btn-outline-secondary btn-sm">My Hobbies</a>
+			<a href="/date" class="central btn btn-outline-secondary btn-sm">Current Date</a>
+			<a href="/blog" class="central btn btn-outline-secondary btn-sm">Blog</a>
+			<a href="/about" class="central btn btn-outline-secondary btn-sm">About</a>
+			<a href="/contact" class="central btn btn-outline-secondary btn-sm">Contact</a>
 		</body>
 	</main>
 </Layout>
