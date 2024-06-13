@@ -42,9 +42,9 @@ import Card from '../components/Card.astro';
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 			<title>Welcome!</title>
 		</head>
-		<body class="body central">
+		<body class="body">
 			<p></p>
-			<h3 class="ftimes centered underline teal">My Hobbies</h3>
+			<h3 class="ftimes centered underline teal central">My Hobbies</h3>
 			<div class="list-group central">
 				<a href="/pvz" class="list-group-item list-group-item-action active" aria-current="true">Plants vs. Zombies</a>
 				<a href="/chess" class="list-group-item list-group-item-action">Chess</a>
@@ -53,14 +53,14 @@ import Card from '../components/Card.astro';
 			<p></p>
 			<h3 class="ftimes centered underline indigo central">Current Date</h3>
 			<p></p>
-			<div class="d-grid gap-2 col-6 mx-auto">
+			<div class="d-grid gap-2 col-6 mx-auto central">
 				<button class="btn btn-primary" type="button" id="open_popup">Give me the date</button>
 			</div>
 			<div id="popup" class="popup">
 				<div class="content">
 					<span class="close" id="close_popup">&times;</span>
-					<h2>Here is the date</h2>
-					<p>The date is <var id="date">___</var></p>
+					<h2 class="central">Here is the date</h2>
+					<p class="central">The date is <var id="date">___</var></p>
 				</div>
 			</div>
 			<script>
