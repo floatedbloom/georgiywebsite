@@ -5,15 +5,6 @@ import Card from '../components/Card.astro';
 
 <Layout title="Welcome to My Homepage.">
 	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
 			<path
 				fill-rule="evenodd"
 				clip-rule="evenodd"
@@ -48,6 +39,15 @@ import Card from '../components/Card.astro';
 					color: rgb(19, 18, 18);
 					font-size: 20px;
 					line-height: 1.6;
+				}
+				.astro-a {
+					position: absolute;
+					top: -32px;
+					left: 50%;
+					transform: translatex(-50%);
+					width: 220px;
+					height: auto;
+					z-index: -1;
 				}
 				h1 {
 					font-size: 4rem;
