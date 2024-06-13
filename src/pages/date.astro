@@ -4,7 +4,7 @@ import Card from '../components/Card.astro';
 const pageTitle = "Date";
 ---
 
-<Layout title="Date">
+<Layout title="Date • George">
 	<main>
 			<path
 				fill-rule="evenodd"
@@ -63,7 +63,8 @@ const pageTitle = "Date";
                 if (openButton && popup && closeButton && dateElement && contentContainer) {
                 openButton.addEventListener('click', function () {
                     const currentDate = new Date();
-                    const stringDate = currentDate.toString();
+                    const options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' };
+                    const stringDate = currentDate.toLocaleDateString('en-US', options);
                     dateElement.textContent = stringDate;
                     popup.style.display = "flex"; // Show the popup
                     contentContainer.style.filter = "blur(5px)"; // Blur the background
