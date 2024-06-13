@@ -163,17 +163,17 @@ const { title } = Astro.props;
 	}
 	a {
 		font-family: 'Lato', sans-serif;
-		color: #007bff; /* Default link color */
+		color: rgb(237, 206, 241); /* Default link color */
 		text-decoration: none; /* Remove underline */
 		transition: color 0.3s ease; /* Smooth color transition */
 	}
 
 	a:hover {
-		color: #0056b3; /* Hover color */
+		color: #d368ca; /* Hover color */
 	}
 
 	a:visited {
-		color: #6610f2; /* Visited link color */
+		color: rgb(237, 206, 241); /* Visited link color */
 	}
 
 	a:focus,
@@ -222,6 +222,25 @@ const { title } = Astro.props;
     .list a:hover {
       color: #2e2616; /* Darker color on hover */
     }
+	.home-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+	}
+	.homepage-button {
+		padding: 10px 20px;
+		background-color: rgb(60, 179, 113);
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		font-size: 1rem;
+		text-decoration: none;
+		transition: background-color 0.3s ease;
+	}
+	.homepage-button:hover {
+		background-color: rgb(46, 139, 87);
+	}
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
 		.central {
