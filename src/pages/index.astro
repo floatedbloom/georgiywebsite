@@ -44,20 +44,22 @@ import Card from '../components/Card.astro';
 		</head>
 		<body class="body">
 			<p></p>
-			<h3 class="ftimes centered underline blue central">My Hobbies</h3>
+			<h3 class="ftimes central">My Hobbies</h3>
 			<div class="list-group central">
-				<a href="/pvz" class="list-group-item list-group-item-action active" aria-current="true">Plants vs. Zombies</a>
+				<a href="/pvz" class="list-group-item list-group-item-action">Plants vs. Zombies</a>
 				<a href="/chess" class="list-group-item list-group-item-action">Chess</a>
 				<a href="/tennis" class="list-group-item list-group-item-action">Tennis</a>
 			</div>
 			<p></p>
 			<h3 class="ftimes centered underline indigo central">Current Date</h3>
 			<p></p>
-			<div class="d-grid gap-2 col-6 mx-auto central">
-				<button class="btn btn-primary" type="button" id="open_popup">Give me the date</button>
+			<div class="content-container">
+				<div class="d-grid gap-2 col-6 mx-auto central">
+				  <button class="btn btn-primary" type="button" id="open_popup">Give me the date</button>
+				</div>
 			</div>
 			<div id="popup" class="popup">
-				<div class="content">
+				<div class="popup-content">
 					<span class="close" id="close_popup">&times;</span>
 					<h2 class="central">Here is the date</h2>
 					<p class="central">The date is <var id="date">___</var></p>
@@ -65,34 +67,37 @@ import Card from '../components/Card.astro';
 			</div>
 			<script>
 				// Get the elements
-				const openButton = document.getElementById("open_popup");
-				const popup = document.getElementById("popup");
-				const closeButton = document.getElementById("close_popup");
-				const date = document.getElementById("date");
+				const openButton = document.getElementById("open_popup") as HTMLButtonElement | null;
+				const popup = document.getElementById("popup") as HTMLDivElement | null;
+				const closeButton = document.getElementById("close_popup") as HTMLSpanElement | null;
+				const dateElement = document.getElementById("date") as HTMLSpanElement | null;
+				const contentContainer = document.querySelector('.content-container') as HTMLDivElement | null;
 
 				// Check if all elements exist
-				if (openButton && popup && closeButton && date) {
-					openButton.addEventListener('click', function () {
-						const currentDate = new Date();
-						const stringDate = currentDate.toString();
-						date.textContent = stringDate;
-						popup.style.display = "block";
+				if (openButton && popup && closeButton && dateElement && contentContainer) {
+				openButton.addEventListener('click', function () {
+					const currentDate = new Date();
+					const stringDate = currentDate.toString();
+					dateElement.textContent = stringDate;
+					popup.style.display = "flex"; // Show the popup
+					contentContainer.style.filter = "blur(5px)"; // Blur the background
 				});
 
 				closeButton.addEventListener('click', function () {
-					popup.style.display = "none";
+					popup.style.display = "none"; // Hide the popup
+					contentContainer.style.filter = "none"; // Remove the blur effect
 				});
 
 				// Close the popup if the user clicks outside of it
 				window.addEventListener('click', function(event) {
-					if (event.target == popup) {
+					if (event.target === popup) {
 					popup.style.display = "none";
+					contentContainer.style.filter = "none";
 					}
 				});
 				} else {
-					console.error("One or more elements not found");
+				console.error("One or more elements not found");
 				}
-
 			</script>
 	
 			<p></p>
