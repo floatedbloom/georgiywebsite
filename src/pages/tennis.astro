@@ -43,12 +43,20 @@ import Card from '../components/Card.astro';
 			<title>Welcome!</title>
 		</head>
 		<body class="body">
-            <h1 class="ftimes centered underline">Tennis</h1>
-            <p></p>
-    
-            <h2 class="ftimes indigo centered">My Favorite Tennis Youtube Channel</h2>
-            <h4 class="centered"><a href="https://www.youtube.com/@IntuitiveTennis" class="ftimes">Intuitive Tennis</a></h4>
-            <p class = "centered ftimes">Intuitive Tennis is great youtube channel to watch for tennis improvement and for knowledge on the sport. It is made by Nikola Aracic, a former D1 player and longtime coach. He uses his many decades of competitive and coaching experience to explain tennis mechanics and tactics in the most intuitive way. Ever since I started watching him, my tennis was improved dramatically and he helped me get rid of my bad technique and habits. I urge anyone interested in tennis to watch Intuitive Tennis.</p>    
+			<div class="tennis-page">
+				<h1 class="ftimes centered underline">Tennis</h1>
+				<p></p>
+				<h2 class="ftimes indigo centered">My Tennis Journey</h2>
+				<p>I've been playing </p>
+		
+				<h2 class="ftimes indigo centered">My Favorite Tennis Youtube Channel</h2>
+				<h4 class="centered"><a href="https://www.youtube.com/@IntuitiveTennis" class="ftimes">Intuitive Tennis</a></h4>
+				<p class = "centered ftimes">Intuitive Tennis is great youtube channel to watch for tennis improvement and for knowledge on the sport. 
+					It is made by Nikola Aracic, a former D1 player and longtime coach. He uses his many decades of competitive and 
+					coaching experience to explain tennis mechanics and tactics in the most intuitive way. Ever since I started watching him, 
+					my tennis was improved dramatically and he helped me get rid of my bad technique and habits. 
+					I urge anyone interested in tennis to watch Intuitive Tennis.</p>    
+			</div>
 		</body>
 	</main>
 </Layout>
@@ -109,5 +117,31 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.tennis-page {
+		font-family: 'Montserrat', sans-serif;
+		background-color: #f2f2f2;
+		color: #333;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.tennis-page h1 {
+		font-size: 2.5em;
+		margin-bottom: 20px;
+	}
+
+	.tennis-page p {
+		font-size: 1.2em;
+		line-height: 1.6;
+	}
+
+	.tennis-page .content {
+		max-width: 800px;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 8px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	}
 </style>

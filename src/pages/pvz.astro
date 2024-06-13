@@ -42,43 +42,44 @@ import Card from '../components/Card.astro';
 			<title>Welcome!</title>
 		</head>
 		<body class="body">
-			<h1 class="ftimes centered underline">Plants vs. Zombies</h1>
-            <p></p>
-            <table class="ftimes centered border">
-                <tr>
-                <th>Game</th>
-                <th>Wiki Page</th>
-                </tr>
-                <tr>
-                <td>Plants vs. Zombies</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies">Wiki</a></td>
-                </tr>
-                <tr>
-                <td>Plants vs. Zombies 2</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies_2">Wiki</a></td>
-                </tr>
-                <tr>
-                <td>Plants vs. Zombies 3</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies_3">Wiki</a></td>
-                </tr>
-                <tr>
-                <td>Plants vs. Zombies Heroes</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies_Heroes">Wiki</a></td>
-                </tr>
-                <tr>
-                <td>Garden Warfare</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies:_Garden_Warfare">Wiki</a></td>
-                </tr>
-                <tr>
-                <td>Garden Warfare 2</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies:_Garden_Warfare_2">Wiki</a></td>
-                </tr>
-                <tr>
-                <td>Battle for Neighborville</td>
-                <td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies:_Battle_for_Neighborville">Wiki</a></td>
-                </tr>
-            </table>
-
+			<div class="pvz-page">
+				<h1 class="ftimes centered underline central">Plants vs. Zombies</h1>
+				<p></p>
+				<table class="ftimes centered border central">
+					<tr>
+					<th>Game</th>
+					<th>Wiki Page</th>
+					</tr>
+					<tr>
+					<td>Plants vs. Zombies</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies">Wiki</a></td>
+					</tr>
+					<tr>
+					<td>Plants vs. Zombies 2</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies_2">Wiki</a></td>
+					</tr>
+					<tr>
+					<td>Plants vs. Zombies 3</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies_3">Wiki</a></td>
+					</tr>
+					<tr>
+					<td>Plants vs. Zombies Heroes</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies_Heroes">Wiki</a></td>
+					</tr>
+					<tr>
+					<td>Garden Warfare</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies:_Garden_Warfare">Wiki</a></td>
+					</tr>
+					<tr>
+					<td>Garden Warfare 2</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies:_Garden_Warfare_2">Wiki</a></td>
+					</tr>
+					<tr>
+					<td>Battle for Neighborville</td>
+					<td><a href="https://plantsvszombies.fandom.com/wiki/Plants_vs._Zombies:_Battle_for_Neighborville">Wiki</a></td>
+					</tr>
+				</table>
+			</div>
             <div>
                 <a class="btn btn-outline-secondary btn-sm" role="link"href="index.html">Homepage</a>
             </div>
@@ -142,5 +143,31 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.pvz-page {
+		font-family: 'Roboto', sans-serif;
+		background-color: #f5f7fa;
+		color: #333;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.pvz-page h1 {
+		font-size: 2.8em;
+		margin-bottom: 20px;
+	}
+
+	.pvz-page p {
+		font-size: 1.2em;
+		line-height: 1.6;
+	}
+
+	.pvz-page .content {
+		max-width: 800px;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 25px;
+		border-radius: 8px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	}
 </style>

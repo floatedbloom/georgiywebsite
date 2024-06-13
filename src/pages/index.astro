@@ -73,6 +73,11 @@ import Card from '../components/Card.astro';
 				const dateElement = document.getElementById("date") as HTMLSpanElement | null;
 				const contentContainer = document.querySelector('.content-container') as HTMLDivElement | null;
 
+				// Hide the popup initially
+				if (popup) {
+				popup.style.display = "none";
+				}
+
 				// Check if all elements exist
 				if (openButton && popup && closeButton && dateElement && contentContainer) {
 				openButton.addEventListener('click', function () {

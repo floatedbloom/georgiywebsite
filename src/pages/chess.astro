@@ -43,14 +43,17 @@ import Card from '../components/Card.astro';
 			<title>Welcome!</title>
 		</head>
 		<body class="body">
-            <h1 class="ftimes centered underline">Chess</h1>
-            <p></p>
-            <h2 class="ftimes green centered">Chess Websites</h2>
-            <ul class = "centered">
-                <li><a href="https://lichess.org/">Lichess</a></li>
-                <li><a href="https://chess.com">Chess.com</a></li>
-                <li><a href="https://chess24.com">Chess24</a></li>
-            </ul>    
+			<div class="chess-page">
+				<h1 class="ftimes central">Chess</h1>
+				<p></p>
+				<h2 class="central">My Chess Journey</h2>
+				<h2 class="ftimes text-gradient central">Chess Websites</h2>
+				<ul class = "central">
+					<li><a href="https://lichess.org/">Lichess</a></li>
+					<li><a href="https://chess.com">Chess.com</a></li>
+					<li><a href="https://chess24.com">Chess24</a></li>
+				</ul>    
+			</div>
 		</body>
 	</main>
 </Layout>
@@ -111,5 +114,31 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.chess-page {
+		font-family: 'Playfair Display', serif;
+		background-color: #f9f9f9;
+		color: #444;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.chess-page h1 {
+		font-size: 3em;
+		margin-bottom: 20px;
+	}
+
+	.chess-page p {
+		font-size: 1.3em;
+		line-height: 1.6;
+	}
+
+	.chess-page .content {
+		max-width: 800px;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 30px;
+		border-radius: 10px;
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 	}
 </style>

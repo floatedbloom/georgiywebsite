@@ -152,6 +152,52 @@ const { title } = Astro.props;
 		max-width: 600px; /* Maximum width of the box */
 		text-align: justify; /* Justify the text */
 	}
+	body {
+		font-size: 16px;
+		line-height: 1.6;
+		margin: 0;
+		padding: 0;
+		background-color: #000; /* Set background color to black */
+		color: #a2f2f8; /* Set text color to bluish */
+	}
+	a {
+		color: #007bff; /* Default link color */
+		text-decoration: none; /* Remove underline */
+		transition: color 0.3s ease; /* Smooth color transition */
+	}
+
+	a:hover {
+		color: #0056b3; /* Hover color */
+	}
+
+	a:visited {
+		color: #6610f2; /* Visited link color */
+	}
+
+	a:focus,
+	a:active {
+		outline: none; /* Remove outline on focus and active states */
+	}
+
+	/* Example: Underline on hover */
+	a.underline-on-hover:hover {
+		text-decoration: underline;
+	}
+
+	/* Example: Button style */
+	a.button {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: #007bff;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+	}
+
+	a.button:hover {
+		background-color: #0056b3;
+	}
 
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
