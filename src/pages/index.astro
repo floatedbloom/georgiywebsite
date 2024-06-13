@@ -64,32 +64,31 @@ import Card from '../components/Card.astro';
 				</div>
 			</div>
 			<script>
-				// Assuming that the IDs you are using exist in your HTML file
-				const openButton = document.getElementById("open_popup") as HTMLButtonElement | null;
-				const popup = document.getElementById("popup") as HTMLDivElement | null;
-				const closeButton = document.getElementById("close_popup") as HTMLButtonElement | null;
-				const date = document.getElementById("date") as HTMLSpanElement | null;
+				// Get the elements
+				const openButton = document.getElementById("open_popup");
+				const popup = document.getElementById("popup");
+				const closeButton = document.getElementById("close_popup");
+				const date = document.getElementById("date");
 
+				// Check if all elements exist
 				if (openButton && popup && closeButton && date) {
 					openButton.addEventListener('click', function () {
-						const current_date = new Date();
-						const string_date = current_date.toString();
-						if (date) {
-							date.textContent = string_date;
-						}
+						const currentDate = new Date();
+						const stringDate = currentDate.toString();
+						date.textContent = stringDate;
+						popup.style.display = "block";
+				});
 
-						if (popup) {
-							popup.style.display = "block";
-						}
-					});
+				closeButton.addEventListener('click', function () {
+					popup.style.display = "none";
+				});
 
-					if (closeButton) {
-						closeButton.addEventListener('click', function () {
-							if (popup) {
-								popup.style.display = "none";
-							}
-						});
+				// Close the popup if the user clicks outside of it
+				window.addEventListener('click', function(event) {
+					if (event.target == popup) {
+					popup.style.display = "none";
 					}
+				});
 				} else {
 					console.error("One or more elements not found");
 				}
@@ -98,8 +97,8 @@ import Card from '../components/Card.astro';
 	
 			<p></p>
 			<div>
-				<h4 class="ftimes centered grey">Contact Me</h4>
-					<h5 class="centered"><a href="mailto:georgelapin23@gmail.com">Email</a></h5>
+				<h4 class="ftimes centered grey central">Contact Me</h4>
+					<h5 class="centered central"><a href="mailto:georgelapin23@gmail.com">Email</a></h5>
 			</div>
 		</body>
 	</main>
@@ -161,5 +160,39 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.popup {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	.popup .content {
+		background-color: #fefefe;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 80%; /* Could be more or less, depending on screen size */
+	}
+
+	.close {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
 	}
 </style>
