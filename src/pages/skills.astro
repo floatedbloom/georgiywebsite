@@ -41,9 +41,6 @@ const pageTitle = "Skills";
 			</style>
         </head>
         <body>
-            <div class="chart-container">
-				<canvas id="barGraph"></canvas>
-            </div>
 			<script>
 				import Chart from 'chart.js/auto';
 				document.addEventListener('DOMContentLoaded', () => {
@@ -79,8 +76,10 @@ const pageTitle = "Skills";
 						console.error('Canvas element with id "barGraph" not found');
 					}
 				});
-
 			</script>
+			<div class="chart-container">
+				<canvas id="barGraph"></canvas>
+			</div>
         </body>
 	</main>
 </Layout>
