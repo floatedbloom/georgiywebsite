@@ -10,8 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.2.6",
     "@astrojs/check": "^0.4.1",
+    "astro": "^4.2.6",
+    "chart.js": "^4.4.3",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/chart.js": "^2.9.41"
   }
 }
