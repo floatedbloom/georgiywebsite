@@ -85,16 +85,29 @@ const { title } = Astro.props;
 	}
 	
 	:root {
-	--accent-gradient: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #f3e1e1); /* Adjusted gradient colors */
-	}
+            --accent-gradient: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #f3e1e1);
+        }
+        
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		background-size: 200%; /* Reduced background size for a less harsh effect */
-		background-position: 50%; /* Center the gradient for a smoother transition */
-		font-size: 1.2em; /* Optional: Adjust font size */
-		font-weight: bold; /* Optional: Adjust font weight */
+		background-size: 200%;
+		font-size: 2em; /* Adjust font size as needed */
+		font-weight: bold; /* Adjust font weight as needed */
+		animation: shimmer 3s linear infinite;
+	}
+
+	@keyframes shimmer {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
 	}
 	.list-group {
 		display: flex;
