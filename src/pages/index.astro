@@ -79,15 +79,6 @@ import Card from '../components/Card.astro';
 					gap: 2rem;
 					padding: 0;
 				}
-				body {
-					min-height: 100vh;
-					font-size: 16px;
-					line-height: 1.6;
-					margin: 0;
-					padding: 0;
-					background-color: #443f3f; /* Set background color to black */	
-					color: #a2f2f8; /* Set text color to bluish */
-				}
 				.btn-custom {
 					font-size: 1.25rem; /* Adjust size as needed */
 					padding: 1rem 2rem; /* Adjust padding as needed */
@@ -104,7 +95,10 @@ import Card from '../components/Card.astro';
 		<body class="bg-dark text-light">
 			<div class="fullscreen-container">
 				<div class="text-center mt-5">
-					<h1><span class="central text-gradient mb-4">George Lapin </span></h1>
+					<h1><span class="central text-gradient mb-4 neon">George Lapin </span></h1>
+					<astro-island>
+						
+					</astro-island>
 					<div class="row justify-content-center">
 						<div class="col-auto">
 							<a href="/hobbies" class="btn btn-outline-secondary btn-custom">My Hobbies</a>
