@@ -19,7 +19,7 @@ const { title } = Astro.props;
 		<title>{title} • George</title>
 	</head>
 	<body>
-		<h1><span class="text-gradient central">{title}</span></h1>
+		<h1><span class="text-gradient central hom">{title}</span></h1>
         <a class="homepage-button" role="link" href="/">Homepage</a>
 		<slot />
 	</body>
@@ -293,6 +293,13 @@ const { title } = Astro.props;
 		font-size: 1.25rem; /* Adjust size as needed */
 		padding: 1rem 2rem; /* Adjust padding as needed */
 		margin: 0.5rem; /* Adjust margin for spacing between buttons */
+	}
+	.hom {
+		text-align: center;
+	}
+
+	.hide-home-title .hom {
+		display: none;
 	}
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
