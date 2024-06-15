@@ -44,6 +44,7 @@ const pageTitle = "Contact";
                 .central {
                     display: flex;
                     justify-content: center;
+                    margin-top: 50px; /* Added margin for spacing */
                 }
 
                 .homepage-button {
@@ -56,22 +57,24 @@ const pageTitle = "Contact";
                     font-size: 1rem;
                     text-decoration: none;
                     transition: background-color 0.3s ease;
-                    margin-top: 20px;
+                    margin-bottom: 20px; /* Spacing between title and buttons */
                 }
 
                 .homepage-button:hover {
                     background-color: rgb(46, 139, 87);
                 }
 
-                .fullscreen-container {
+                .buttons-container {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    height: calc(100vh - 100px); /* Adjusted height for content */
+                    flex-direction: column; /* Stack buttons vertically on smaller screens */
                 }
 
-                .text-center {
-                    text-align: center;
+                .button-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px; /* Space between buttons */
                 }
 
                 .email-button,
@@ -106,8 +109,8 @@ const pageTitle = "Contact";
         <body>
             <h1 class="text-gradient central">{pageTitle}</h1>
             <a class="homepage-button" role="link" href="/">Homepage</a>
-            <div class="fullscreen-container">
-                <div class="text-center">
+            <div class="buttons-container">
+                <div class="button-wrapper">
                     <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
                         <span class="icon"><i class="fas fa-envelope"></i></span>
                         <span class="text">Email</span>
