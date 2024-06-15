@@ -18,67 +18,21 @@ const pageTitle = "Contact";
                     color: #333; /* Dark text color */
                     font-family: 'Roboto Slab', serif; /* Google Font for headings */
                 }
-
-                .text-gradient {
-                    background-image: var(--accent-gradient);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-size: 200%;
-                    font-size: 3em; /* Adjusted font size */
-                    font-weight: bold;
-                    line-height: 1.2;
-                    padding-bottom: 0.2em;
-                    animation: shimmer 2s linear infinite;
+                .button-wrapper {
+                    display: flex;
+                    flex-direction: column; /* Stack buttons vertically */
+                    align-items: center; /* Center items horizontally */
+                    gap: 20px; /* Space between buttons */
                 }
-
-                @keyframes shimmer {
-                    0% {
-                        background-position: 0% 50%;
-                    }
-                    50% {
-                        background-position: 100% 50%;
-                    }
-                    100% {
-                        background-position: 0% 50%;
-                    }
-                }
-
-                .central {
+				.container {
+					background-color: #f8f9fa; /* Light background */
+                    color: #333; /* Dark text color */
+                    font-family: 'Roboto Slab', serif; /* Google Font for headings */
                     display: flex;
                     justify-content: center;
-                    margin-top: 50px; /* Added margin for spacing */
-                }
-
-                .homepage-button {
-                    display: inline-block;
-                    padding: 10px 20px;
-                    background-color: rgb(60, 179, 113);
-                    color: #fff;
-                    border: none;
-                    border-radius: 5px;
-                    font-size: 1rem;
-                    text-decoration: none;
-                    transition: background-color 0.3s ease;
-                    margin-bottom: 20px; /* Spacing between title and buttons */
-                }
-
-                .homepage-button:hover {
-                    background-color: rgb(46, 139, 87);
-                }
-
-                .buttons-container {
-                    display: flex !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                    flex-direction: column !important; /* Stack buttons vertically on smaller screens */
-                }
-
-                .button-wrapper {
-                    display: flex !important;
-                    justify-content: center !important;
-                    gap: 20px !important; /* Space between buttons */
-                }
-
+                    align-items: center;
+                    height: 100vh; /* Full height for centering content */
+				}
                 .email-button,
                 .github-button {
                     display: inline-block;
@@ -92,35 +46,26 @@ const pageTitle = "Contact";
                     text-align: center; /* Center text */
                     width: 250px; /* Fixed width for consistent button size */
                 }
-
                 .email-button:hover,
                 .github-button:hover {
                     background-color: #1abc9c;
                     color: #ffffff;
                 }
-
-                .icon {
-                    font-size: 2em; /* Adjusted icon size */
-                }
-
-                .text {
-                    font-size: 1.5em; /* Adjusted text size */
-                }
             </style>
         </head>
         <body>
-            <div class="buttons-container">
-                <div class="button-wrapper">
-                    <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
-                        <span class="icon"><i class="fas fa-envelope"></i></span>
-                        <span class="text">Email</span>
-                    </a>
-                    <a href="https://github.com/floatedbloom" class="github-button" target="_blank">
-                        <span class="icon"><i class="fab fa-github"></i></span>
-                        <span class="text">GitHub</span>
-                    </a>
-                </div>
-            </div>
+			<div class="container">
+				<div class="button-wrapper">
+					<a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
+						<span class="icon"><i class="fas fa-envelope"></i></span>
+						<span class="text">Email</span>
+					</a>
+					<a href="https://github.com/floatedbloom" class="github-button" target="_blank">
+						<span class="icon"><i class="fab fa-github"></i></span>
+						<span class="text">GitHub</span>
+					</a>
+				</div>
+			</div>
         </body>
     </main>
 </Layout>
