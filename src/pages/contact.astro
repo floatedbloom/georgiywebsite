@@ -1,99 +1,123 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 const pageTitle = "Contact";
 ---
 
 <Layout title="Contact • George">
-	<main>
-		<head>
+    <main>
+        <head>
             <meta name="viewport" content="initial-scale=1, width=device-width">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
             <title>{pageTitle}</title>
-			<style>
-				.email-button {
-					display: inline-block;
-					text-decoration: none;
-					background-color: #2c3e50; /* Background color */
-					color: #ffffff; /* Text color */
-					padding: 12px 20px; /* Padding for button */
-					border-radius: 5px; /* Rounded corners */
-					transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-					/* Centering content */
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: column;
-				}
+            <style>
+                body {
+                    background-color: #f8f9fa; /* Light background */
+                    color: #333; /* Dark text color */
+                    font-family: 'Roboto Slab', serif; /* Google Font for headings */
+                }
 
-				.email-button:hover {
-					background-color: #1abc9c; /* Hover background color */
-					color: #ffffff; /* Hover text color */
-				}
+                .text-gradient {
+                    background-image: var(--accent-gradient);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-size: 200%;
+                    font-size: 3em; /* Adjusted font size */
+                    font-weight: bold;
+                    line-height: 1.2;
+                    padding-bottom: 0.2em;
+                    animation: shimmer 2s linear infinite;
+                }
 
-				.email-button .icon {
-					margin-bottom: 10px; /* Space between icon and text */
-				}
+                @keyframes shimmer {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 50%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
 
-				.email-button .text {
-					font-size: 3.5em; /* Text size */
-				}
+                .central {
+                    display: flex;
+                    justify-content: center;
+                }
 
-				/* Font Awesome icon styles */
-				.email-button .icon i {
-					font-size: 3.7em; /* Icon size */
-				}
-				.github-button {
-					display: inline-block;
-					text-decoration: none;
-					background-color: #2c3e50; /* Background color for GitHub */
-					color: #ffffff; /* Text color */
-					padding: 12px 20px; /* Padding for button */
-					border-radius: 5px; /* Rounded corners */
-					transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-					/* Centering content */
-					display: flex;
-					flex-direction: column; /* Stack items vertically */
-					justify-content: center;
-					align-items: center;
-					margin-top: 20px; /* Space between buttons */
-				}
+                .homepage-button {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background-color: rgb(60, 179, 113);
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                    text-decoration: none;
+                    transition: background-color 0.3s ease;
+                    margin-top: 20px;
+                }
 
-				.github-button:hover {
-					background-color: #1abc9c; /* Hover background color for GitHub */
-					color: #ffffff; /* Hover text color */
-				}
+                .homepage-button:hover {
+                    background-color: rgb(46, 139, 87);
+                }
 
-				.github-button .icon {
-					margin-bottom: 10px; /* Space between icon and text */
-				}
+                .fullscreen-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: calc(100vh - 100px); /* Adjusted height for content */
+                }
 
-				.github-button .text {
-					font-size: 3.5em; /* Adjusted text size */
-				}
+                .text-center {
+                    text-align: center;
+                }
 
-				/* Font Awesome icon styles */
-				.github-button .icon i {
-					font-size: 3.7em; /* Adjusted icon size */
-				}
-			</style>
+                .email-button,
+                .github-button {
+                    display: inline-block;
+                    text-decoration: none;
+                    background-color: #2c3e50;
+                    color: #ffffff;
+                    padding: 20px 30px;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                    margin: 20px;
+                    text-align: center; /* Center text */
+                    width: 250px; /* Fixed width for consistent button size */
+                }
+
+                .email-button:hover,
+                .github-button:hover {
+                    background-color: #1abc9c;
+                    color: #ffffff;
+                }
+
+                .icon {
+                    font-size: 2em; /* Adjusted icon size */
+                }
+
+                .text {
+                    font-size: 1.5em; /* Adjusted text size */
+                }
+            </style>
         </head>
         <body>
-			<h1><span class="text-gradient central">{pageTitle}</span></h1>
-			<a class="homepage-button" role="link" href="/">Homepage</a>
-			<div class="fullscreen-conatiner">
-				<div class="text-center mt-5">
-					<a href="mailto:georgelapin23@gmail.com" class="email-button">
-						<span class="icon"><i class="fas fa-envelope"></i></span>
-						<span class="text">Email</span>
-					</a>
-					<a href="https://github.com/floatedbloom" class="github-button">
-						<span class="icon"><i class="fab fa-github"></i></span>
-						<span class="text">Github</span>
-					</a>
-				</div>
-			</div>
+            <h1 class="text-gradient central">{pageTitle}</h1>
+            <a class="homepage-button" role="link" href="/">Homepage</a>
+            <div class="fullscreen-container">
+                <div class="text-center">
+                    <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <span class="text">Email</span>
+                    </a>
+                    <a href="https://github.com/floatedbloom" class="github-button" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span class="text">GitHub</span>
+                    </a>
+                </div>
+            </div>
         </body>
-	</main>
+    </main>
 </Layout>
