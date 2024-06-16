@@ -23,6 +23,9 @@ const pageTitle = "Contact";
                     align-items: center;
                     height: 100vh; /* Full height for centering content */
 				}
+                .thebuttons {
+
+                }
                 .email-button,
                 .github-button {
                     display: inline-block;
@@ -44,18 +47,20 @@ const pageTitle = "Contact";
             </style>
         </head>
         <body>
-            <h1 class="text-gradient central">{pageTitle}</h1>
-            <a class="homepage-button" role="link" href="/">Homepage</a>
 			<div class="container">
 				<div class="button-wrapper">
-					<a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
-						<span class="icon"><i class="fas fa-envelope"></i></span>
-						<span class="text">Email</span>
-					</a>
-					<a href="https://github.com/floatedbloom" class="github-button" target="_blank">
-						<span class="icon"><i class="fab fa-github"></i></span>
-						<span class="text">GitHub</span>
-					</a>
+                    <h1 class="text-gradient central">{pageTitle}</h1>
+                    <a class="homepage-button central" role="link" href="/">Homepage</a>
+                    <div class="mx-auto mt-8 md:mt-16 grid grid-cols-3 gap-8 md:gap-16" id="fade">
+                            <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span class="text">Email</span>
+                        </a>
+                        <a href="https://github.com/floatedbloom" class="github-button" target="_blank">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                            <span class="text">GitHub</span>
+                        </a>
+                    </div>
 				</div>
 			</div>
         </body>
