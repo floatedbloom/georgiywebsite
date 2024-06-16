@@ -12,16 +12,14 @@ import Card from '../components/Card.astro';
 			<title>Welcome!</title>
 		</head>
 		<body class="body">
-			<div class="">
-				<h1><span class="text-gradient central">My Blog</span></h1>
-				<a class="homepage-button central" role="link" href="/">Homepage</a>
+			<div class="container text-center">
+				<h1><span class="text-gradient">My Blog</span></h1>
+				<a class="homepage-button" role="link" href="/">Homepage</a>
 				<div class="central">
 					<p class="text-gradient"> This is where I will post updates on my progress learning Astro</p>
-					<ul class="list">
+					<ul class="list-unstyled">
 						<li><a href="/posts/post-1/">Post 1</a></li>
-						<li>  </li>
 						<li><a href="/posts/post-2/">Post 2</a></li>
-						<li>  </li>
 						<li><a href="/posts/post-3/">Post 3</a></li>
 					</ul>
 					<p class="text-gradient">To be continued...</p>
@@ -50,20 +48,6 @@ import Card from '../components/Card.astro';
 		width: 220px;
 		height: auto;
 		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
 	}
 	.instructions {
 		margin-bottom: 2rem;
