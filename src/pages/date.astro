@@ -79,9 +79,9 @@ const pageTitle = "Date";
                 }
                 .circle {
                     position: absolute;
-                    height: 50px;
-                    width: 50px;
-                    border-radius: 50px;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 30px;
                     background-color: #3FC380;
                     animation: animate linear 2s infinite;
                     z-index: 1;
@@ -135,34 +135,57 @@ const pageTitle = "Date";
                 }
                 .normal {
                     display: none;
+                    left: -540px;
+                    top: -60px;
                     z-index: 2;
                 }
                 .flip {
                     display: none;
+                    left: 860px;
+                    top: 10px;
+                    z-index: 2;
                     rotate: 180deg;
                 }
-                .up {
+                .down {
+                    left: 180px;
+                    top: -200px;
                     display: none;
+                    z-index: 2;
                     rotate: 90deg;
                 }
-                .down {
+                .up {
+                    left: 100px;
+                    top: 130px;
                     display: none;
+                    z-index: 2;
                     rotate: 270deg;
                 }
                 .upleft {
                     display: none;
+                    left: 700px;
+                    top: 160px;
+                    z-index: 2;
                     rotate: 225deg;
                 }
                 .upright {
                     display: none;
+                    left: -460px;
+                    top: 100px;
+                    z-index: 2;
                     rotate: 315deg;
                 }
                 .downleft {
                     display: none;
+                    left: 780px;
+                    top: -155px;
+                    z-index: 2;
                     rotate: 135deg;
                 }
                 .downright {
                     display: none;
+                    left: -400px;
+                    top: -210px;
+                    z-index: 2;
                     rotate: 45deg;
                 }
                 .loading-container {
@@ -182,8 +205,8 @@ const pageTitle = "Date";
         </head>
         <body class="body">
             <div class="container">
-                <h1><span class="text-gradient">{pageTitle}</span></h1>
-                <a class="homepage-button" role="link" href="/">Homepage</a>
+                <h1><span class="text-gradient" id="title">{pageTitle}</span></h1>
+                <a class="homepage-button" id="home" role="link" href="/">Homepage</a>
                 <div class="padded">
                     <div class="loading-container">
                         <ul class="loading-frame normal" id="normal">
@@ -303,6 +326,9 @@ const pageTitle = "Date";
                     const contentContainer = document.querySelector('.loading-container') as HTMLDivElement | null;
                     const container = document.querySelector('.container') as HTMLDivElement;
 
+                    const title = document.getElementById("title") as HTMLDivElement;
+                    const home = document.getElementById("home") as HTMLDivElement;
+
                     const normal = document.getElementById("normal") as HTMLDivElement;
                     const flip = document.getElementById("flip") as HTMLDivElement;
                     const up = document.getElementById("up") as HTMLDivElement;
@@ -336,24 +362,48 @@ const pageTitle = "Date";
                         const stringDate = currentDate.toLocaleDateString('en-US', options);
                         dateElement.textContent = stringDate;
                         popup.style.display = "flex"; // Show the popup
-                        container.style.filter = "blur(5px)"; // Blur the background
-                        contentContainer.style.filter = "none";
+                        title.style.filter = "blur(5px)"; // Blur the background
+                        home.style.filter = "blur(5px)";
+                        openButton.style.filter = "blur(5px)";
 
+                        up.style.display = "inline-block";
+                        down.style.display = "inline-block";
                         normal.style.display = "inline-block";
+                        flip.style.display = "inline-block";
+                        downright.style.display = "inline-block";
+                        downleft.style.display = "inline-block";
+                        upright.style.display = "inline-block";
+                        upleft.style.display = "inline-block";
                     });
                 
                     closeButton.addEventListener('click', function () {
                         popup.style.display = "none"; // Hide the popup
                         container.style.filter = "none"; // Remove the blur effect
+                        up.style.display = "none";
+                        down.style.display = "none";
                         normal.style.display = "none";
+                        flip.style.display = "none";
+                        downright.style.display = "none";
+                        downleft.style.display = "none";
+                        upright.style.display = "none";
+                        upleft.style.display = "none";
                     });
                 
                     // Close the popup if the user clicks outside of it
                     window.addEventListener('click', function(event) {
                         if (event.target === popup) {
                             popup.style.display = "none";
-                            container.style.filter = "none";
+                            title.style.filter = "none";
+                            home.style.filter = "none";
+                            openButton.style.filter = "none";
+                            up.style.display = "none";
+                            down.style.display = "none";
                             normal.style.display = "none";
+                            flip.style.display = "none";
+                            downright.style.display = "none";
+                            downleft.style.display = "none";
+                            upright.style.display = "none";
+                            upleft.style.display = "none";
                         }
                     });
                     } 
