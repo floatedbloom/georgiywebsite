@@ -12,18 +12,16 @@ import Card from '../components/Card.astro';
 			<title>Welcome!</title>
 		</head>
 		<body class="body">
-			<div class="container text-center">
+			<div class="container">
 				<h1><span class="text-gradient">My Blog</span></h1>
 				<a class="homepage-button" role="link" href="/">Homepage</a>
-				<div class="central">
-					<p class="text-gradient"> This is where I will post updates on my progress learning Astro</p>
-					<ul class="list-unstyled">
-						<li><a href="/posts/post-1/">Post 1</a></li>
-						<li><a href="/posts/post-2/">Post 2</a></li>
-						<li><a href="/posts/post-3/">Post 3</a></li>
-					</ul>
-					<p class="text-gradient">To be continued...</p>
-				</div>
+				<p class="text-gradient"> This is where I will post updates on my progress learning Astro</p>
+				<ul class="list size">
+					<li><a href="/posts/post-1/">Post 1</a></li>
+					<li><a href="/posts/post-2/">Post 2</a></li>
+					<li><a href="/posts/post-3/">Post 3</a></li>
+				</ul>
+				<p class="text-gradient">To be continued...</p>
 			</div>
 		</body>
 	</main>
@@ -33,8 +31,6 @@ import Card from '../components/Card.astro';
 	main {
 		margin: auto;
 		padding: 1rem;
-		/*width: 800px;*/
-		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
@@ -71,5 +67,8 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.size {
+		font-size: 1.5em;
 	}
 </style>
