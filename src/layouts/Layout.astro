@@ -47,39 +47,12 @@ const { title } = Astro.props;
 	.content-container {
 		transition: filter 0.3s;
 	}
-
-	/* Styles for the popup */
-	.popup {
-		display: none; /* Hidden by default */
-		position: fixed; /* Stay in place */
-		z-index: 1; /* Sit on top */
-		left: 0;
-		top: 0;
-		width: 100%; /* Full width */
-		height: 100%; /* Full height */
-		background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.popup-content {
-		background-color: #fff;
-		padding: 20px;
-		border-radius: 5px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		width: 80%; /* Could be more or less, depending on screen size */
-		max-width: 600px;
-		text-align: center;
-	}
-
 	.close {
 		color: #aaa;
 		float: right;
 		font-size: 28px;
 		font-weight: bold;
 	}
-
 	.close:hover,
 	.close:focus {
 		color: rgb(255, 255, 255);
@@ -184,11 +157,12 @@ const { title } = Astro.props;
 		text-align: center; /* Center text */
 	}
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+	@keyframes gradientBG {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
 	a {
 		font-family: 'Lato', sans-serif;
 		color: rgb(237, 206, 241); /* Default link color */
@@ -271,7 +245,8 @@ const { title } = Astro.props;
 	}
 	h1 {
 		line-height: 1.2; /* Adjust to ensure enough space for descenders */
-		padding-bottom: 0.2em; /* Add padding to avoid cut off */
+		padding-bottom: 0.2em;
+		font-size: 5em; /* Add padding to avoid cut off */
 	}
 	.text-center {
 		text-align: center;
@@ -284,12 +259,13 @@ const { title } = Astro.props;
 		width: 100%;
 	}
 	.btn-custom {
-			font-size: 1.25rem; /* Adjust size as needed */
-			padding: 1rem 2rem; /* Adjust padding as needed */
-			margin: 0.5rem; /* Adjust margin for spacing between buttons */
+		font-size: 1.25rem; /* Adjust size as needed */
+		padding: 1rem 2rem; /* Adjust padding as needed */
+		margin: 0.5rem; /* Adjust margin for spacing between buttons */
 	}
 	.wrapper {
 		display: flex;
+		justify-content: center;
 		flex-direction: column; /* Stack buttons vertically */
 		align-items: center; /* Center items horizontally */
 		gap: 20px; /* Space between buttons */
@@ -298,7 +274,10 @@ const { title } = Astro.props;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 100vh; /* Full height for centering content */
+		flex-direction: column;
+		text-align: center;
+		height: 100vh;
+		width: 100%;
 	}
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
