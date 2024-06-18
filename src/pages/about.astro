@@ -14,7 +14,7 @@ const pageTitle = "About Me";
         </head>
         <body>
 			<div class="container">
-				<h1><span class="text-gradient">{pageTitle}</span></h1>
+				<h1><span class="text-gradient smaller">{pageTitle}</span></h1>
 				<a class="homepage-button" role="link" href="/">Homepage</a>
 				<p class="text-gradient box-thing size">
 					George Lapin is an aspiring high school developer with over a year of coding experience. He built this homepage for himself using Astro, HTML/CSS, and JavaScript. He is
@@ -52,6 +52,9 @@ const pageTitle = "About Me";
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
+	}
+	.smaller {
+		font-size: 100px;
 	}
 	.size {
 		font-size: 1.3em;

@@ -5,97 +5,303 @@ import Card from '../components/Card.astro';
 
 <Layout title="Chess • George">
 	<main>
-		<h1 class="ftimes central text-gradient">Chess</h1>
-		<a class="homepage-button" role="link" href="/">Homepage</a>
 		<head>
 			<meta name="viewport" content="initial-scale=1, width=device-width">
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 			<title>Welcome!</title>
 		</head>
-		<body class="body">
-			<div class="chess-page">
-				<h2 class="central">My Chess Journey</h2>
-				<p>I started playing chess pretty late, when I was 15. I had very little natural talent, so my early months of playing were marred by losses and generally low progress, 
-					staying at the bottom of the ELO ratings. I eventually dedicated myself to improvement and have since reached the top 3% of chess players by rating. My journey has
-					taught me the virtue of patience and practice, and I hope to eventually reach an ELO of 2000 on chess.com.</p>
-				<h2 class="ftimes text-gradient central">Chess Websites</h2>
-				<ul class = "list">	
-					<li><a href="https://lichess.org/">Lichess</a></li>
-					<li>  </li>
-					<li><a href="https://chess.com">Chess.com</a></li>
-					<li>  </li>
-					<li><a href="https://chess24.com">Chess24</a></li>
-				</ul>    
+		<body>
+			<div class="container">
+				<h1 class="size text-gradient">Chess</h1>
+				<a class="homepage-button" role="link" href="/">Homepage</a>
+				<a role="link" href="/hobbies" class="btn back-button btn-outline-secondary">Back</a>
+				<div class="chess-page">
+					<h2 class="small colored">My Chess Journey</h2>
+					<p>I started playing chess pretty late, when I was 15. I had little natural talent, so my early months of playing were marred by losses and generally low progress, 
+						staying at the bottom of the ELO ratings. I eventually dedicated myself to improvement and have since reached the top 3% of chess players by rating. My journey has
+						taught me the virtue of patience and practice, and I hope to eventually reach an ELO of 2000 on chess.com.</p>   
+				</div>
+				<h2 class="text-gradient">Favorite Openings</h2>
+				<h3 class="text-gradient small vienna">Vienna Gambit (White)</h3>
+				<h3 class="text-gradient small port">Portugese Gambit (Black)</h3>
+				<div class="boards">
+					<p class="text-gradient descriptions1">
+						The Vienna gambit begins 1. e4 e5 2. Nc3 Nf6 3. f4. When accepted, it gives an extremely easy position to pressure with and ultimately win. Unfortunately, stronger
+						players will always reject taking the pawn, but even still it leads to interesting and complex games.
+					</p>
+					<table class="chess-board">
+						<tbody>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="light">♜</td>
+								<td class="dark">♞</td>
+								<td class="light">♝</td>
+								<td class="dark">♚</td>
+								<td class="light">♛</td>
+								<td class="dark">♝</td>
+								<td class="light"></td>
+								<td class="dark">♜</td>
+							</tr>
+							<tr>
+								<td class="dark">♟</td>
+								<td class="light">♟</td>
+								<td class="dark">♟</td>
+								<td class="light">♟</td>
+								<td class="dark"></td>
+								<td class="light">♟</td>
+								<td class="dark">♟</td>
+								<td class="light">♟</td>
+							</tr>
+							<tr>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark">♞</td>
+								<td class="light"></td>
+								<td class="dark"></td>
+							</tr>
+							<tr>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark">♟</td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+							</tr>
+							<tr>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light">♙</td>
+								<td class="dark">♙</td>
+								<td class="light"></td>
+								<td class="dark"></td>
+							</tr>
+							<tr>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark">♘</td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+							</tr>
+							<tr>
+								<td class="light">♙</td>
+								<td class="dark">♙</td>
+								<td class="light">♙</td>
+								<td class="dark">♙</td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light">♙</td>
+								<td class="dark">♙</td>
+							</tr>
+							<tr>
+								<td class="dark">♖</td>
+								<td class="light"></td>
+								<td class="dark">♗</td>
+								<td class="light">♕</td>
+								<td class="dark">♔</td>
+								<td class="light">♗</td>
+								<td class="dark">♘</td>
+								<td class="light">♖</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="hide">...................................................................................</p>
+					<table class="chess-board">
+						<tbody>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="light">♖</td>
+								<td class="dark">♘</td>
+								<td class="light">♗</td>
+								<td class="dark">♕</td>
+								<td class="light">♔</td>
+								<td class="dark">♗</td>
+								<td class="light">♘</td>
+								<td class="dark">♖</td>
+							</tr>
+							<tr>
+								<td class="dark">♙</td>
+								<td class="light">♙</td>
+								<td class="dark">♙</td>
+								<td class="light">♙</td>
+								<td class="dark"></td>
+								<td class="light">♙</td>
+								<td class="dark">♙</td>
+								<td class="light">♙</td>
+							</tr>
+							<tr>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+							</tr>
+							<tr>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+							</tr>
+							<tr>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light">♙</td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+							</tr>
+							<tr>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark">♞</td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+								<td class="dark"></td>
+								<td class="light"></td>
+							</tr>
+							<tr>
+								<td class="light">♟</td>
+								<td class="dark">♟</td>
+								<td class="light">♟</td>
+								<td class="dark">♟</td>
+								<td class="light"></td>
+								<td class="dark">♟</td>
+								<td class="light">♟</td>
+								<td class="dark">♟</td>
+							</tr>
+							<tr>
+								<td class="dark">♜</td>
+								<td class="light"></td>
+								<td class="dark">♝</td>
+								<td class="light">♚</td>
+								<td class="dark">♛</td>
+								<td class="light">♝</td>
+								<td class="dark">♞</td>
+								<td class="light">♜</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="text-gradient descriptions2">
+						The Portugese gambit begins 1. e4 d5 2. exd5 Nf6. It yields very novel positions that most opponents are unprepared for, especially since almost everyone who plays
+						d5 in response to e4 plays the Scandanavian instead by taking the pawn back with the queen, making the Portugese a powerful subversion.
+					</p>
+				</div>
 			</div>
 		</body>
 	</main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+	.vienna {
+		position: fixed;
+		top: 505px !important;
+		left: 520px !important;
 	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
+	.port {
+		position: fixed;
+		top: 505px !important;
+		left: 1150px !important;
 	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
+
+	.descriptions1 {
+		font-size: 15px;
+		position: fixed;
+		padding: 10px;
+		border: 2px solid #ffffff;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		top: 61.5% !important;
+		left: 12.5% !important;
+		width: 200px !important;
+		
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+
+	.descriptions2 {
+		position: fixed;
+		font-size: 15px;
+		padding: 10px;
+		border: 2px solid #ffffff;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		top: 61% !important;
+		left: 77% !important;
+		width: 200px !important;
+		display: flex;
+		
 	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
+
+	.size {
+		font-size: 4.6em !important;
 	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
+
+	.small {
+		font-size: 22px !important;
 	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
+
+	.boards {
+		display: flex !important;
+		flex-direction: row !important;
 	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+
+	.chess-board { border-spacing: 0; border-collapse: collapse;}
+            .chess-board th { padding: .5em; }
+            .chess-board th + th { border-bottom: 1px solid #000; }
+            .chess-board th:first-child,
+            .chess-board td:last-child { border-right: 1px solid #000; }
+            .chess-board tr:last-child td { border-bottom: 1px solid; }
+            .chess-board th:empty { border: none; }
+            .chess-board td { width: 1.4em; height: 1.4em; text-align: center; font-size: 30px; line-height: 0;}
+            .chess-board .light { background: #eee; }
+            .chess-board .dark { background: #aaa; }
+ 
 	.chess-page {
 		font-family: 'Playfair Display', serif;
-		background-color: #f9f9f9;
-		color: #444;
 		padding: 20px;
 		text-align: center;
-		font-size: 20px;
+		border-radius: 10px; 
+		border: 2px solid #000; 
+		font-size: 15px;
+		background: linear-gradient(135deg, #ffffff, #525355); 
+		color: rgb(3, 3, 3);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 	}
 
 	.chess-page h1 {
@@ -109,11 +315,10 @@ import Card from '../components/Card.astro';
 	}
 
 	.chess-page .content {
-		max-width: 800px;
 		margin: 0 auto;
-		background-color: #fff;
 		padding: 30px;
-		border-radius: 10px;
-		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+	}
+	.colored {
+		color: rgb(104, 88, 68);
 	}
 </style>
