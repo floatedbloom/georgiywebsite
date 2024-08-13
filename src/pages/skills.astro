@@ -37,8 +37,10 @@ description: "This is the skills page."
                 </div>
                 <footer>
                     <div class="col-auto">
-                        <button id="languages" class="btn btn-outline-secondary btn-custom">Languages</button>
+                        <button id="languages" class="btn btn-outline-secondary btn-custom">Programming Languages</button>
                         <button id="web" class="btn btn-outline-secondary btn-custom">Web Stack</button>
+                        <button id="tech" class="btn btn-outline-secondary btn-custom">Technologies</button>
+                        <button id="talk" class="btn btn-outline-secondary btn-custom">Languages</button>
                     </div>
                 </footer>
             </div>
@@ -49,7 +51,7 @@ description: "This is the skills page."
 				const languagesData = {
 					labels: ['Python', 'Java', 'C', 'Javascript'],
 					datasets: [{
-						label: 'Languages',
+						label: 'Progamming Languages',
 						data: [8, 10, 7, 8],
 						backgroundColor: 'rgba(54, 162, 235, 0.2)',
 						borderColor: 'rgba(54, 162, 235, 1)',
@@ -58,10 +60,32 @@ description: "This is the skills page."
 				}
 
 				const webData = {
-					labels: ['Flask','Astro', 'SQLite', 'HTML/CSS'],
+					labels: ['Flask','Astro', 'Flutter', 'HTML/CSS'],
 					datasets: [{
 						label: 'Web Stack',
-						data: [7, 9, 10, 8],
+						data: [7, 9, 8, 8],
+						backgroundColor: 'rgba(54, 162, 235, 0.2)',
+						borderColor: 'rgba(54, 162, 235, 1)',
+						borderWidth: 2
+					}]
+				};
+
+                const techData = {
+					labels: ['SQLite','Notion', 'MS Office'],
+					datasets: [{
+						label: 'Technologies',
+						data: [8, 9, 8],
+						backgroundColor: 'rgba(54, 162, 235, 0.2)',
+						borderColor: 'rgba(54, 162, 235, 1)',
+						borderWidth: 2
+					}]
+				};
+
+                const talkData = {
+					labels: ['Russian','English', 'French'],
+					datasets: [{
+						label: 'Languages',
+						data: [9, 10, 6,],
 						backgroundColor: 'rgba(54, 162, 235, 0.2)',
 						borderColor: 'rgba(54, 162, 235, 1)',
 						borderWidth: 2
@@ -80,12 +104,16 @@ description: "This is the skills page."
                         options: {
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    display: false,
                                 }
                             },
                             plugins: {
                                 legend: {
-                                    display: false
+                                    display: false,
+                                },
+                                tooltip: {
+                                    enabled: false,
                                 }
                             }
                         }
@@ -97,6 +125,8 @@ description: "This is the skills page."
 
                     const languagesButton = document.getElementById('languages') as HTMLCanvasElement;
                     const webButton = document.getElementById('web') as HTMLCanvasElement;
+                    const techButton = document.getElementById('tech') as HTMLCanvasElement;
+                    const talkButton = document.getElementById('talk') as HTMLCanvasElement;
 
                     languagesButton.addEventListener('click', () => {
                         createChart(languagesData);
@@ -104,6 +134,14 @@ description: "This is the skills page."
 
                     webButton.addEventListener('click', () => {
                         createChart(webData);
+                    });
+
+                    techButton.addEventListener('click', () => {
+                        createChart(techData);
+                    });
+
+                    talkButton.addEventListener('click', () => {
+                        createChart(talkData);
                     });
                 });
             </script>
