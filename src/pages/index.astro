@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import BottomNav from "../components/BottomNav.astro"
 
 title: "Welcome to My Site"
 layout: Layout
@@ -73,36 +74,16 @@ description: "This is the home page of my site."
 				margin: 0.5rem 0; /* Add margin for spacing between buttons on mobile */
 				width: 100%; /* Make buttons full-width on small screens */
 			}
+			.name {
+				font-size: 150px;
+			}
 		</style>
 	</head>
 	<body class="bg-dark text-light">
 		<main>
 			<div class="fullscreen-container">
 				<div class="text-center mt-5">
-					<h1><span class="central text-gradient mb-4 neon">George Lapin </span></h1>
-					<div class="row justify-content-center">
-						<div class="col-auto">
-							<a href="/hobbies" class="btn btn-outline-secondary btn-custom">My Hobbies</a>
-						</div>
-						<div class="col-auto">
-							<a href="/skills" class="btn btn-outline-secondary btn-custom">Skills</a>
-						</div>
-						<div class="col-auto">
-							<a href="/experience" class="btn btn-outline-secondary btn-custom">Work Experience</a>
-						</div>
-						<div class="col-auto">
-							<a href="/blog" class="btn btn-outline-secondary btn-custom">Blog</a>
-						</div>
-						<div class="col-auto">
-							<a href="/about" class="btn btn-outline-secondary btn-custom">About</a>
-						</div>
-						<div class="col-auto">
-							<a href="/contact" class="btn btn-outline-secondary btn-custom">Contact</a>
-						</div>
-						<div class="col-auto">
-							<a href="/date" class="btn btn-outline-secondary btn-custom">Current Date</a>
-						</div>
-					</div>
+					<h1><span class="central text-gradient mb-4 neon name">George Lapin </span></h1>
 				</div>
 			</div>
 		</main>	
