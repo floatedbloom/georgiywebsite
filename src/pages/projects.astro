@@ -16,17 +16,30 @@ description: "This is the projects page."
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
             <title>{pageTitle}</title>
 
-        </head>
+        </head> 
         <body>
-            <ul>
-                <li>BloomQuiz</li>
-                <li>Personal Website</li>
-                <li>Flutter Recipes</li>
-                <li>Math Derust</li>
-                <li>School Clubs Website</li>
-                <li>Fluid Dynamics</li>
-            </ul>
+            <h1><span class="text-gradient central bottom-padding">{pageTitle}</span></h1>
+            <div class="grid">
+                <Card title="Homepage" body="This website" href="https://floatedbloom.netlify.app/" bgImage="/zhe.ico"></Card>
+                <Card title="BloomQuiz" body="Quiz Sharing Study Website" href="https://floatedbloom.pythonanywhere.com/" bgImage="/flowernoback.png"></Card>
+                <Card title="Flutter Recipes" body="Recipe Social Media App" href="https://github.com/floatedbloom/flutter_recipes" bgImage="/recipedone.png"></Card>
+                <Card title="LSHS Clubs" body="Website Hub" href="https://github.com/floatedbloom/csclub_website" bgImage="/lshsnoback.png"></Card>
+                <Card title="Math Derust" body="High School Math App" href="https://github.com/floatedbloom" bgImage="/mathnoback.png"></Card>
+            </div>
         </body>
-
     </main>
 </Layout>
+<style>
+    .grid {
+		display: inline-grid;
+		grid-template-columns: repeat(3, minmax(0, 10em)); /* Adjusts to 2 columns */
+		grid-gap: 2em;
+		justify-content: center;
+		padding: 1em;
+		border-radius: 1em;
+		position: relative;
+	}
+    .bottom-padding {
+        padding-bottom: 0.5em;
+    }
+</style>

@@ -8,7 +8,7 @@ layout: Layout
 description: "This is the skills page."
 ---
 
-<Layout title="My Skills • George">
+<Layout title="Skills • George">
     <main>
         <head>
             <meta name="viewport" content="initial-scale=1, width=device-width">
@@ -20,9 +20,36 @@ description: "This is the skills page."
                     width: 100%;
                     max-width: 800px;
                     height: 400px;
+                    border-radius: 10px; /* Soft rounded corners */
+                    padding: 10px;
+                    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                    box-shadow: 0px 1px 8px #ff9a9e; /* Soft glow */
                 }
                 .padded {
-                    padding: 100px;
+                    padding: 1em;
+                }
+                .bottom-pad {
+                    padding-bottom: 2em;
+                }
+                .button-txt {
+                    font-size: 1em;
+                    font-weight: bold;
+                }
+                .custom-button {
+                    display: inline-block;
+                    text-decoration: none;
+                    background-color: inherit;
+                    color: #d3c6c6;
+                    padding: 10px 15px;
+                    border-radius: 10px;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                    margin: 10px;
+                    text-align: center; /* Center text */
+                    width: 150px; /* Fixed width for consistent button size */
+                }
+                .custom-button:hover {
+                    background-color: #fad0c4;
+                    color: #ffffffd5;
                 }
             </style>
         </head>
@@ -30,64 +57,61 @@ description: "This is the skills page."
             <div class="container">
                 <div class="padded">
                     <h1><span class="text-gradient central">{pageTitle}</span></h1>
-                    <a class="homepage-button" role="link" href="/">Homepage</a>
                 </div>
                 <div>
                     <canvas id="barGraph"></canvas>
                 </div>
-                <footer>
-                    <div class="col-auto">
-                        <button id="languages" class="btn btn-outline-secondary btn-custom">Programming Languages</button>
-                        <button id="web" class="btn btn-outline-secondary btn-custom">Web Stack</button>
-                        <button id="tech" class="btn btn-outline-secondary btn-custom">Technologies</button>
-                        <button id="talk" class="btn btn-outline-secondary btn-custom">Languages</button>
-                    </div>
-                </footer>
+                <div class="col-auto bottom-pad">
+                    <button id="languages" class="btn-outline-secondary custom-button button-txt">Languages</button>
+                    <button id="web" class="btn-outline-secondary custom-button button-txt">Web Stack</button>
+                    <button id="tech" class="btn-outline-secondary custom-button button-txt">Technologies</button>
+                    <button id="talk" class="btn-outline-secondary custom-button button-txt">Linguas</button>
+                </div>
             </div>
             <script>
                 import Chart, { registerables } from 'chart.js/auto';
                 let myChart: Chart | null = null;
 
 				const languagesData = {
-					labels: ['Python', 'Java', 'C', 'Javascript'],
+					labels: ['Python', 'Java', 'Dart', 'C++','C', 'Javascript'],
 					datasets: [{
 						label: 'Progamming Languages',
-						data: [8, 10, 7, 8],
-						backgroundColor: 'rgba(54, 162, 235, 0.2)',
-						borderColor: 'rgba(54, 162, 235, 1)',
+						data: [8, 10, 9, 7, 7, 6],
+						backgroundColor: '#fad0c4',
+						borderColor: '#ff9a9e',
 						borderWidth: 2
 					}]
 				}
 
 				const webData = {
-					labels: ['Flask','Astro', 'Flutter', 'HTML/CSS'],
+					labels: ['Flask','Astro', 'Flutter', 'HTML/CSS', 'React'],
 					datasets: [{
 						label: 'Web Stack',
-						data: [7, 9, 8, 8],
-						backgroundColor: 'rgba(54, 162, 235, 0.2)',
-						borderColor: 'rgba(54, 162, 235, 1)',
+						data: [7, 9, 10, 8,4],
+						backgroundColor: '#fad0c4',
+						borderColor: '#ff9a9e',
 						borderWidth: 2
 					}]
 				};
 
                 const techData = {
-					labels: ['SQLite','Notion', 'MS Office'],
+					labels: ['SQLite','Git','Notion', 'MS Office'],
 					datasets: [{
 						label: 'Technologies',
-						data: [8, 9, 8],
-						backgroundColor: 'rgba(54, 162, 235, 0.2)',
-						borderColor: 'rgba(54, 162, 235, 1)',
+						data: [8, 7, 9, 8],
+						backgroundColor: '#fad0c4',
+						borderColor: '#ff9a9e',
 						borderWidth: 2
 					}]
 				};
 
                 const talkData = {
-					labels: ['Russian','English', 'French'],
+					labels: ['Russian','English', 'French', 'Portugese'],
 					datasets: [{
 						label: 'Languages',
-						data: [9, 10, 6,],
-						backgroundColor: 'rgba(54, 162, 235, 0.2)',
-						borderColor: 'rgba(54, 162, 235, 1)',
+						data: [9, 10, 6, 2],
+						backgroundColor: '#fad0c4',
+						borderColor: '#ff9a9e',
 						borderWidth: 2
 					}]
 				};
@@ -103,6 +127,15 @@ description: "This is the skills page."
                         data: data,
                         options: {
                             scales: {
+                                x: {
+                                    ticks: {
+                                        color: "#dff8ffd5",
+                                        font: {
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
+                                },
                                 y: {
                                     beginAtZero: true,
                                     display: false,
