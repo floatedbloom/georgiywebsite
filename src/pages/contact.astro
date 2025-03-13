@@ -30,11 +30,16 @@ description: "This is the contact page."
                 }
                 .email-button:hover,
                 .github-button:hover {
-                    background-color: #1abc9c;
+                    background-color: #fad0c4;
                     color: #ffffff;
                 }
                 .font-increase {
                     font-size: 5em !important;
+                }
+                .custom-icon {
+                    width: 24px;
+                    height: 24px;
+                    filter: invert(1) brightness(1000%);
                 }
             </style>
         </head>
@@ -42,15 +47,32 @@ description: "This is the contact page."
 			<div class="container">
 				<div class="wrapper">
                     <h1 class="text-gradient central font-increase">{pageTitle}</h1>
-                    <a class="homepage-button central" role="link" href="/">Homepage</a>
                     <div class="mx-auto mt-8 md:mt-16 grid grid-cols-3 gap-8 md:gap-16" id="fade">
-                            <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
-                            <span class="icon"><i class="fas fa-envelope"></i></span>
-                            <span class="text">Email</span>
+                        <a href="https://www.linkedin.com/in/georgiy-lapin-16b98b287/" class="github-button" target="_blank">
+                            <span class="icon"><i class="fab fa-linkedin"></i></span>
+                            <span class="text">LinkedIn</span>
                         </a>
                         <a href="https://github.com/floatedbloom" class="github-button" target="_blank">
                             <span class="icon"><i class="fab fa-github"></i></span>
                             <span class="text">GitHub</span>
+                        </a>
+                        <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span class="text">Email</span>
+                        </a>
+                    </div>
+                    <div class="mx-auto mt-8 md:mt-16 grid grid-cols-3 gap-8 md:gap-16" id="fade">
+                        <a href="https://www.youtube.com/channel/UC1yQpYMYS6tbq-hn3oXis8g" class="email-button" target="_blank">
+                            <span class="icon"><i class="fab fa-youtube"></i></span>
+                            <span class="text">YouTube</span>
+                        </a>
+                        <a href="https://leetcode.com/u/floatedbloom/" class="github-button" target="_blank">
+                            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="custom-icon"></span>
+                            <span class="text">LeetCode</span>
+                        </a>
+                        <a href="https://www.chess.com/member/chessmeister555" class="github-button" target="_blank">
+                            <span class="icon">♟</span>
+                            <span class="text">Chess.com</span>
                         </a>
                     </div>
 				</div>
