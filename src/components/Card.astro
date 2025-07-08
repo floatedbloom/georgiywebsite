@@ -63,9 +63,22 @@ const { href, title, body, bgImage} = Astro.props;
 		background-size: cover;
 		background-position: center;
 		filter: blur(0px);
-		opacity: 1;
+		opacity: 0.7; /* Reduced opacity for better text visibility */
 		transition: filter 0.6s ease-in-out, opacity 0.4s ease-in-out;
 		z-index: 0; /* Keep background behind text */
+	}
+
+	/* Dark overlay for better text contrast */
+	.link-card::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+		z-index: 1;
+		transition: opacity 0.4s ease-in-out;
 	}
 
 	/* ✅ Ensure Text is Always Visible */
@@ -73,10 +86,10 @@ const { href, title, body, bgImage} = Astro.props;
 		text-decoration: none;
 		padding: calc(1.5rem - 1px);
 		border-radius: 8px;
-		color: rgba(255, 255, 255, 0); /* Initially invisible */
+		color: rgba(255, 255, 255, 0.95); /* Always visible with high contrast */
 		position: relative;
-		z-index: 2;
-		transition: color 0.6s ease-in-out, opacity 0.4s ease-in-out; /* Smooth fade */
+		z-index: 3; /* Above both background and overlay */
+		transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 		opacity: 1;
 		width: 100%;
 		height: 100%;
@@ -84,6 +97,7 @@ const { href, title, body, bgImage} = Astro.props;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Strong text shadow for readability */
 	}
 
 	/* Responsive link padding */
@@ -161,27 +175,36 @@ const { href, title, body, bgImage} = Astro.props;
 		}
 	}
 
-	/* ✅ Hover Effect: Background Fades Out, Text Fades In */
+	/* ✅ Hover Effect: Background Fades Out, Text Enhanced */
 	.link-card:hover::before {
-		opacity: 0.3; /* Lower only the background opacity */
+		opacity: 0.3; /* Lower background opacity on hover */
 		filter: blur(8px);
 		transition: filter 0.6s ease-in-out, opacity 0.4s ease-in-out;
 	}
 
+	.link-card:hover::after {
+		opacity: 0.3; /* Reduce dark overlay on hover */
+	}
+
 	.link-card:hover > a {
-		color: #fad0c4; /* Fade text in */
-		font-weight: bold;
-		opacity: 1;
+		color: #fad0c4; /* Enhance text color on hover */
+		text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(250, 208, 196, 0.3); /* Enhanced glow effect */
+		transform: scale(1.02); /* Subtle scale effect */
 	}
 
 	/* Touch device optimization */
 	@media (hover: none) and (pointer: coarse) {
 		.link-card::before {
-			opacity: 0.5; /* More visible text on touch devices */
+			opacity: 0.6; /* Slightly more visible background on touch devices */
+		}
+		
+		.link-card::after {
+			opacity: 0.7; /* Stronger overlay for better text contrast on touch devices */
 		}
 		
 		.link-card > a {
-			color: rgba(255, 255, 255, 0.9); /* More visible text on touch devices */
+			color: rgba(255, 255, 255, 0.98); /* Maximum visibility on touch devices */
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); /* Stronger shadow for touch devices */
 		}
 	}
 </style>

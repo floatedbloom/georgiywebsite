@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 const pageTitle = "Skills";
 
 title: "Skills"
@@ -13,290 +12,461 @@ description: "This is the skills page."
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
             <title>{pageTitle}</title>
-            <style>
-                #barGraph {
-                    width: 100%;
-                    max-width: 800px;
-                    height: 525px; /* 75% of current 700px (700 * 0.75 = 525) */
-                    border-radius: 10px; /* Soft rounded corners */
-                    padding: 10px;
-                    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-                    box-shadow: 0px 1px 8px #ff9a9e; /* Soft glow */
-                }
-
-                /* Desktop-only height reduction for better fit */
-                @media (min-width: 1025px) {
-                    #barGraph {
-                        height: 400px; /* Reduced from 525px to fit better on desktop with header and buttons */
-                        margin-top: -3rem;
-                    }
-                }
-
-                /* Responsive chart sizing - 75% of current sizes */
-                @media (max-width: 768px) {
-                    #barGraph {
-                        height: 394px; /* 75% of current 525px (525 * 0.75 = 394) */
-                        max-width: 100%;
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    #barGraph {
-                        height: 330px; /* 75% of current 440px (440 * 0.75 = 330) */
-                    }
-                }
-
-                /* Center the chart vertically on mobile */
-                @media (max-width: 480px) {
-                    .container {
-                        padding: 0.5rem;
-                        display: flex;
-                        flex-direction: column;
-                        min-height: 100vh;
-                        justify-content: center; /* Center content vertically */
-                    }
-                    
-                    .padded {
-                        padding: 0.5em;
-                        flex-shrink: 0;
-                    }
-                    
-                    .chart-container {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 1rem 0;
-                    }
-                    
-                    .bottom-pad {
-                        padding-bottom: 1em;
-                        flex-shrink: 0;
-                    }
-                }
-
-                /* Desktop layout optimization */
-                @media (min-width: 1025px) {
-                    .container {
-                        display: flex;
-                        flex-direction: column;
-                        min-height: calc(100vh - 80px); /* Account for bottom nav */
-                        justify-content: center;
-                        padding: 1rem;
-                        padding-bottom: 100px; /* Extra space for bottom nav */
-                    }
-                    
-                    .chart-container {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 1rem 0; /* Reduced margin for better fit */
-                    }
-                }
-
-                /* Center vertically on tablet too */
-                @media (max-width: 768px) and (min-width: 481px) {
-                    .container {
-                        display: flex;
-                        flex-direction: column;
-                        min-height: 100vh;
-                        justify-content: center;
-                        padding: 1rem;
-                    }
-                    
-                    .chart-container {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 1.5rem 0;
-                    }
-                }
-                .padded {
-                    padding: 1em;
-                }
-                .bottom-pad {
-                    padding-bottom: 2em;
-                }
-                .button-txt {
-                    font-size: 1em;
-                    font-weight: bold;
-                }
-                .custom-button {
-                    display: inline-block;
-                    text-decoration: none;
-                    background-color: inherit;
-                    color: #d3c6c6;
-                    padding: 10px 15px;
-                    border-radius: 10px;
-                    transition: background-color 0.3s ease, color 0.3s ease;
-                    margin: 10px;
-                    text-align: center; /* Center text */
-                    width: 150px; /* Fixed width for consistent button size */
-                }
-
-                /* Responsive button styling */
-                @media (max-width: 768px) {
-                    .custom-button {
-                        width: 120px;
-                        padding: 8px 12px;
-                        margin: 8px;
-                        font-size: 0.9em;
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    .custom-button {
-                        width: 100px;
-                        padding: 6px 10px;
-                        margin: 5px;
-                        font-size: 0.8em;
-                    }
-                }
-                .custom-button:hover {
-                    background-color: #fad0c4;
-                    color: #ffffffd5;
-                }
-            </style>
         </head>
         <body>
             <div class="container">
                 <div class="page-header">
                     <h1><span class="text-gradient">{pageTitle}</span></h1>
                 </div>
-                <div class="chart-container">
-                    <canvas id="barGraph"></canvas>
-                </div>
-                <div class="col-auto bottom-pad">
-                    <button id="languages" class="btn-outline-secondary custom-button button-txt">Languages</button>
-                    <button id="web" class="btn-outline-secondary custom-button button-txt">Web Stack</button>
-                    <button id="tech" class="btn-outline-secondary custom-button button-txt">Technologies</button>
-                    <button id="talk" class="btn-outline-secondary custom-button button-txt">Linguas</button>
+                
+                <div class="skills-container">
+                    <!-- Programming Languages Row -->
+                    <div class="skill-row">
+                        <div class="category-label">Languages</div>
+                        <div class="skills-list">
+                            <div class="skill-item primary">
+                                <i class="devicon-java-plain tech-icon"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-python-plain tech-icon"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-dart-plain tech-icon"></i>
+                                <span>Dart</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-cplusplus-plain tech-icon"></i>
+                                <span>C++</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-c-plain tech-icon"></i>
+                                <span>C</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-javascript-plain tech-icon"></i>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Technologies Row -->
+                    <div class="skill-row">
+                        <div class="category-label">Web</div>
+                        <div class="skills-list">
+                            <div class="skill-item primary">
+                                <svg class="tech-icon astro-icon" viewBox="0 0 256 366" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="astroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#FF5D01"/>
+                                            <stop offset="100%" style="stop-color:#FF1639"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path fill="url(#astroGradient)" d="M182.022 9.147c2.982 3.702 4.502 8.697 7.543 18.687L256 246.074a276.467 276.467 0 0 0-79.426-26.891L133.493 73.637a5.8 5.8 0 0 0-10.986 0l-43.081 145.546A276.467 276.467 0 0 0 0 246.074L66.435 27.834c3.041-9.99 4.561-14.985 7.543-18.687C77.8 4.92 82.8 2.667 88.734 2.667h78.532c5.934 0 10.934 2.253 14.756 6.48Z"/>
+                                    <path fill="#FF5D01" d="M189.972 256.46c-10.952 9.364-32.812 15.751-57.992 15.751-30.904 0-56.807-9.621-63.68-22.56-2.458 7.415-3.009 15.903 0 23.4 7.169 17.804 35.538 29.898 63.68 29.898 28.142 0 56.511-12.094 63.68-29.898 3.009-7.497 2.458-15.985 0-23.4-1.506 2.919-3.51 5.708-5.688 6.809Z"/>
+                                </svg>
+                                <span>Astro</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-flutter-plain tech-icon"></i>
+                                <span>Flutter</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-html5-plain tech-icon"></i>
+                                <span>HTML/CSS</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-flask-original tech-icon"></i>
+                                <span>Flask</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-react-original tech-icon"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-nextjs-original tech-icon"></i>
+                                <span>Next</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technology Row -->
+                    <div class="skill-row">
+                        <div class="category-label">Technologies</div>
+                        <div class="skills-list">
+                            <div class="skill-item primary">
+                                <img src="/notion.png" class="tech-icon" alt="Notion">
+                                <span>Notion</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-sqlite-plain tech-icon"></i>
+                                <span>SQLite</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <img src="/msoffice.png" class="tech-icon" alt="MS Office">
+                                <span>MS Office</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <i class="devicon-git-plain tech-icon"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <img src="/supabase.png" class="tech-icon" alt="Supabase">
+                                <span>Supabase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages Row -->
+                    <div class="skill-row">
+                        <div class="category-label">Linguas</div>
+                        <div class="skills-list">
+                            <div class="skill-item primary">
+                                <span class="tech-icon emoji">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <span class="tech-icon emoji">🇷🇺</span>
+                                <span>Russian</span>
+                            </div>
+                            <div class="skill-item primary">
+                                <span class="tech-icon emoji">🇫🇷</span>
+                                <span>French</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <script>
-                import Chart, { registerables } from 'chart.js/auto';
-                let myChart: Chart | null = null;
-
-				const languagesData = {
-					labels: ['Python', 'Java', 'Dart', 'C++','C', 'Javascript'],
-					datasets: [{
-						label: 'Progamming Languages',
-						data: [8, 10, 9, 7, 7, 6],
-						backgroundColor: '#fad0c4',
-						borderColor: '#ff9a9e',
-						borderWidth: 2
-					}]
-				}
-
-				const webData = {
-					labels: ['Flask','Astro', 'Flutter', 'HTML/CSS', 'React'],
-					datasets: [{
-						label: 'Web Stack',
-						data: [7, 9, 10, 8,4],
-						backgroundColor: '#fad0c4',
-						borderColor: '#ff9a9e',
-						borderWidth: 2
-					}]
-				};
-
-                const techData = {
-					labels: ['SQLite','Git','Notion', 'MS Office'],
-					datasets: [{
-						label: 'Technologies',
-						data: [8, 7, 9, 8],
-						backgroundColor: '#fad0c4',
-						borderColor: '#ff9a9e',
-						borderWidth: 2
-					}]
-				};
-
-                const talkData = {
-					labels: ['Russian','English', 'French', 'Portugese'],
-					datasets: [{
-						label: 'Languages',
-						data: [9, 10, 6, 2],
-						backgroundColor: '#fad0c4',
-						borderColor: '#ff9a9e',
-						borderWidth: 2
-					}]
-				};
-
-                function createChart(data: any) {
-                    const c = document.getElementById('barGraph') as HTMLCanvasElement;
-					const ctx = c.getContext('2d') as CanvasRenderingContext2D;
-                    if (myChart) {
-                        myChart.destroy();
-                    }
-                    
-                    // Check if mobile for responsive font sizing
-                    const isMobile = window.innerWidth <= 480;
-                    const isTablet = window.innerWidth <= 768;
-                    
-                    myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: data,
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false, // Allow custom height
-                            scales: {
-                                x: {
-                                    ticks: {
-                                        color: "#dff8ffd5",
-                                        font: {
-                                            size: isMobile ? 10 : isTablet ? 12 : 14, // Smaller font to fit all labels horizontally
-                                            weight: 'bold'
-                                        },
-                                        maxRotation: 0, // No rotation - keep all labels horizontal
-                                        minRotation: 0  // No rotation at all
-                                    }
-                                },
-                                y: {
-                                    beginAtZero: true,
-                                    display: false,
-                                }
-                            },
-                            plugins: {
-                                legend: {
-                                    display: false,
-                                },
-                                tooltip: {
-                                    enabled: false,
-                                }
-                            },
-                            elements: {
-                                bar: {
-                                    borderRadius: isMobile ? 8 : 4, // Larger border radius on mobile
-                                }
-                            }
-                        }
-                    });
-                }
-
-                document.addEventListener('DOMContentLoaded', () => {
-					createChart(languagesData);
-
-                    const languagesButton = document.getElementById('languages') as HTMLCanvasElement;
-                    const webButton = document.getElementById('web') as HTMLCanvasElement;
-                    const techButton = document.getElementById('tech') as HTMLCanvasElement;
-                    const talkButton = document.getElementById('talk') as HTMLCanvasElement;
-
-                    languagesButton.addEventListener('click', () => {
-                        createChart(languagesData);
-                    });
-
-                    webButton.addEventListener('click', () => {
-                        createChart(webData);
-                    });
-
-                    techButton.addEventListener('click', () => {
-                        createChart(techData);
-                    });
-
-                    talkButton.addEventListener('click', () => {
-                        createChart(talkData);
-                    });
-                });
-            </script>
         </body>
     </main>
 </Layout>
+
+            <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px;
+        padding-bottom: 100px;
+        box-sizing: border-box;
+        min-height: 60vh;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .page-header {
+        margin-bottom: -80px;
+    }
+
+    /* Mobile header adjustments */
+    @media (max-width: 768px) {
+        .page-header {
+            margin-bottom: -60px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 1000px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transform: scale(0.85);
+    }
+
+    .skill-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: center;
+    }
+
+    .skill-row:last-child {
+        border-bottom: none;
+    }
+
+    .category-label {
+        font-size: 1.3rem;
+        font-weight: 700;
+        min-width: 120px;
+        text-align: left;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        flex-shrink: 0;
+        padding-top: 0.5rem;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.975rem;
+        flex: 1;
+    }
+
+    .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.39rem;
+        padding: 0.728rem 0.4875rem;
+        border-radius: 0.728rem;
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        min-height: 69px;
+        min-width: 78px;
+        justify-content: center;
+    }
+
+    .skill-item:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 25px rgba(250, 208, 196, 0.2);
+    }
+
+    .tech-icon {
+        font-size: 1.56rem;
+        margin-bottom: 0.195rem;
+        transition: transform 0.3s ease;
+    }
+
+    .tech-icon.emoji {
+        font-size: 1.365rem;
+        line-height: 1;
+    }
+
+    .astro-icon {
+        width: 1.56rem;
+        height: 1.56rem;
+    }
+
+    img.tech-icon {
+        width: 2.08rem;
+        height: 2.08rem;
+        object-fit: contain;
+    }
+
+    .skill-item:hover .tech-icon {
+        transform: scale(1.1);
+    }
+
+    .skill-item span {
+        font-weight: 600;
+        font-size: 0.832rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    /* Primary skills - most proficient */
+    .skill-item.primary {
+        border: 2px solid rgba(250, 208, 196, 0.3);
+    }
+
+    .skill-item.primary .tech-icon {
+        color: rgba(250, 208, 196, 0.95);
+        font-size: 1.755rem;
+    }
+
+    .skill-item.primary img.tech-icon {
+        width: 2.34rem;
+        height: 2.34rem;
+    }
+
+    .skill-item.primary span {
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 700;
+        font-size: 0.8775rem;
+        text-shadow: 0 0 10px rgba(250, 208, 196, 0.3);
+    }
+
+    /* Secondary skills - good proficiency */
+    .skill-item.secondary {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .skill-item.secondary .tech-icon {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .skill-item.secondary span {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 600;
+    }
+
+    /* Tertiary skills - basic/learning */
+    .skill-item.tertiary {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill-item.tertiary .tech-icon {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.365rem;
+    }
+
+    .skill-item.tertiary span {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+        font-size: 0.78rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .skills-container {
+            padding: 0.75rem;
+            gap: 1.5rem;
+        }
+        
+        .skill-row {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .category-label {
+            font-size: 1.2rem;
+            min-width: auto;
+            text-align: center;
+            width: 100%;
+            padding-top: 0;
+        }
+        
+        .skills-list {
+            justify-content: center;
+            gap: 0.728rem;
+        }
+        
+        .skill-item {
+            min-width: 69px;
+            min-height: 59px;
+            padding: 0.585rem 0.39rem;
+        }
+        
+        .tech-icon {
+            font-size: 1.365rem;
+        }
+        
+        .skill-item.primary .tech-icon {
+            font-size: 1.56rem;
+        }
+        
+        .skill-item.tertiary .tech-icon {
+            font-size: 1.17rem;
+        }
+        
+        .skill-item span {
+            font-size: 0.78rem;
+        }
+        
+        .astro-icon {
+            width: 1.365rem;
+            height: 1.365rem;
+        }
+
+        img.tech-icon {
+            width: 1.82rem;
+            height: 1.82rem;
+        }
+
+        .skill-item.primary img.tech-icon {
+            width: 2.08rem;
+            height: 2.08rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 1rem;
+            padding-bottom: 80px;
+        }
+        
+        .skills-container {
+            padding: 0.5rem;
+            gap: 1rem;
+        }
+        
+        .skills-list {
+            gap: 0.4875rem;
+        }
+        
+        .skill-item {
+            min-width: 64px;
+            min-height: 53px;
+            padding: 0.4875rem 0.2925rem;
+        }
+        
+        .tech-icon {
+            font-size: 1.17rem;
+        }
+        
+        .skill-item.primary .tech-icon {
+            font-size: 1.365rem;
+        }
+        
+        .skill-item span {
+            font-size: 0.728rem;
+        }
+        
+        .category-label {
+            font-size: 1.1rem;
+        }
+        
+        .astro-icon {
+            width: 1.17rem;
+            height: 1.17rem;
+        }
+
+        img.tech-icon {
+            width: 2.6rem;
+            height: 2.6rem;
+        }
+
+        .skill-item.primary img.tech-icon {
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+    }
+
+    /* Desktop optimization */
+    @media (min-width: 1025px) {
+        .container {
+            justify-content: flex-start;
+        }
+        
+        .skills-container {
+            padding: 1.5rem;
+            gap: 2.5rem;
+        }
+        
+        .skill-row {
+            gap: 2.5rem;
+        }
+        
+        .category-label {
+            font-size: 1.4rem;
+            min-width: 140px;
+        }
+        
+        .skill-item {
+            min-width: 100px;
+            min-height: 9px;
+            padding: 0.975rem 0.728rem;
+        }
+
+    }
+</style>

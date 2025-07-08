@@ -20,14 +20,14 @@ description: "This is the about page."
 				<h1><span class="text-gradient">{pageTitle}</span></h1>
 			</div>
 			<div class="text-grid">
-				<div class="sentence text-gradient size">High School Dual Enrollment Student</div>
-				<div class="sentence text-gradient size">Aspiring Developer</div>
-				<div class="sentence text-gradient size">Built This Website Using AstroJS</div>
-				<div class="sentence text-gradient size">Cybersecurity Research Apprentice</div>
-				<div class="sentence text-gradient size">Data Science Research Apprentice</div>
+				<div class="sentence text-gradient size">Community College Grad</div>
+				<div class="sentence text-gradient size">Aspiring Founder</div>
+				<div class="sentence text-gradient size">3x Hackathon Winner</div>
+				<div class="sentence text-gradient size">Cybersecurity Research</div>
+				<div class="sentence text-gradient size">Data Science Research</div>
 				<div class="sentence text-gradient size">National Merit Finalist</div>
 				<div class="sentence text-gradient size">AP Scholar With Distinction 2x</div>
-				<div class="sentence text-gradient size">Yale Young Global Scholar and Ambassador</div>
+				<div class="sentence text-gradient size">Yale Young Global Scholar/Ambassador</div>
 				<div class="sentence text-gradient size">ISB STiS Ambassador</div>
 				<div class="sentence text-gradient size">EvCC President's List Every Quarter</div>
 				<div class="sentence text-gradient size">LSHS Math, Chess, CS, and Ping Pong Club Founder</div>
@@ -59,8 +59,6 @@ description: "This is the about page."
 		padding: 1em;
 		border-radius: 1em;
 		position: relative;
-		max-height: calc(100vh - 250px); /* Prevent overflow into bottom nav */
-		overflow-y: auto; /* Allow scrolling if content is too tall */
 		margin-top: -3rem; /* Move closer to header on desktop */
 	}
 
@@ -73,7 +71,6 @@ description: "This is the about page."
 	@media (max-width: 1024px) {
 		.text-grid {
 			grid-template-columns: repeat(3, minmax(0, 10em)); /* 3 columns on tablets */
-			max-height: calc(100vh - 220px);
 			margin-top: -1rem; /* Less aggressive margin on tablets */
 		}
 	}
@@ -83,7 +80,6 @@ description: "This is the about page."
 			grid-template-columns: repeat(2, minmax(0, 12em)); /* 2 columns on mobile */
 			grid-gap: 0.8em;
 			padding: 0.8em;
-			max-height: calc(100vh - 200px);
 			margin-top: 0; /* Reset margin on mobile for better spacing */
 		}
 	}
@@ -93,7 +89,6 @@ description: "This is the about page."
 			grid-template-columns: 1fr; /* Single column on small mobile */
 			grid-gap: 0.5em;
 			padding: 0.5em;
-			max-height: calc(100vh - 180px); /* More compact on small screens */
 			margin-top: 0; /* Reset margin on small mobile */
 		}
 	}
