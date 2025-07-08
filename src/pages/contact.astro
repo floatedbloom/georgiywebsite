@@ -10,7 +10,6 @@ description: "This is the contact page."
 <Layout title="Contact • George">
     <main>
         <head>
-            <meta name="viewport" content="initial-scale=1, width=device-width">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
             <title>{pageTitle}</title>
@@ -21,59 +20,127 @@ description: "This is the contact page."
                     text-decoration: none;
                     background-color: #2c3e50;
                     color: #dff8ffd5;
-                    padding: 20px 30px;
+                    padding: 40px 30px; /* Doubled from 20px to 40px - 100% increase */
                     border-radius: 5px;
                     transition: background-color 0.3s ease, color 0.3s ease;
                     margin: 20px;
                     text-align: center; /* Center text */
                     width: 250px; /* Fixed width for consistent button size */
                 }
+
+                /* Responsive button styling */
+                @media (max-width: 768px) {
+                    .email-button,
+                    .github-button {
+                        width: 200px;
+                        padding: 30px 20px; /* Doubled from 15px to 30px - 100% increase */
+                        margin: 15px;
+                        font-size: 0.9em;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .email-button,
+                    .github-button {
+                        width: 150px; /* Reduced width for better 2-column fit */
+                        padding: 24px 15px; /* Doubled from 12px to 24px - 100% increase */
+                        margin: 8px;
+                        font-size: 0.8em;
+                    }
+                }
+
                 .email-button:hover,
                 .github-button:hover {
                     background-color: #fad0c4;
                     color: #dff8ffd5;
-                }
-                .font-increase {
-                    font-size: 5em !important;
                 }
                 .custom-icon {
                     width: 24px;
                     height: 24px;
                     filter: invert(1) brightness(1000%);
                 }
+
+                /* Responsive custom icon */
+                @media (max-width: 480px) {
+                    .custom-icon {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                /* Desktop: original 3-column layout in 2 separate rows */
+                .contact-row-container {
+                    display: block;
+                }
+
+                .contact-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+                    gap: 2rem;
+                    justify-content: center;
+                    margin: 2rem auto;
+                }
+
+                @media (max-width: 768px) {
+                    .contact-grid {
+                        gap: 1.5rem;
+                        margin: 1.5rem auto;
+                    }
+                }
+
+                /* Mobile: 2x3 grid layout */
+                @media (max-width: 480px) {
+                    .contact-row-container {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+                        grid-template-rows: repeat(3, 1fr); /* 3 rows for mobile */
+                        gap: 1rem;
+                        margin: 1rem auto;
+                        max-width: 350px;
+                    }
+                    
+                    .contact-grid {
+                        display: contents; /* Remove individual grid behavior on mobile */
+                        margin: 0;
+                    }
+                }
             </style>
         </head>
         <body>
 			<div class="container">
 				<div class="wrapper">
-                    <h1 class="text-gradient central font-increase">{pageTitle}</h1>
-                    <div class="mx-auto mt-8 md:mt-16 grid grid-cols-3 gap-8 md:gap-16" id="fade">
-                        <a href="https://www.linkedin.com/in/georgiy-lapin-16b98b287/" class="github-button" target="_blank">
-                            <span class="icon"><i class="fab fa-linkedin"></i></span>
-                            <span class="text">LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/floatedbloom" class="github-button" target="_blank">
-                            <span class="icon"><i class="fab fa-github"></i></span>
-                            <span class="text">GitHub</span>
-                        </a>
-                        <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
-                            <span class="icon"><i class="fas fa-envelope"></i></span>
-                            <span class="text">Email</span>
-                        </a>
+                    <div class="page-header">
+                        <h1><span class="text-gradient">{pageTitle}</span></h1>
                     </div>
-                    <div class="mx-auto mt-8 md:mt-16 grid grid-cols-3 gap-8 md:gap-16" id="fade">
-                        <a href="https://www.youtube.com/channel/UC1yQpYMYS6tbq-hn3oXis8g" class="email-button" target="_blank">
-                            <span class="icon"><i class="fab fa-youtube"></i></span>
-                            <span class="text">YouTube</span>
-                        </a>
-                        <a href="https://leetcode.com/u/floatedbloom/" class="github-button" target="_blank">
-                            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="custom-icon"></span>
-                            <span class="text">LeetCode</span>
-                        </a>
-                        <a href="https://www.chess.com/member/chessmeister555" class="github-button" target="_blank">
-                            <span class="icon">♟</span>
-                            <span class="text">Chess.com</span>
-                        </a>
+                    <div class="contact-row-container">
+                        <div class="contact-grid contact-row-1">
+                            <a href="https://www.linkedin.com/in/georgiy-lapin-16b98b287/" class="github-button" target="_blank">
+                                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                                <span class="text">LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/floatedbloom" class="github-button" target="_blank">
+                                <span class="icon"><i class="fab fa-github"></i></span>
+                                <span class="text">GitHub</span>
+                            </a>
+                            <a href="mailto:georgelapin23@gmail.com" class="email-button" target="_blank">
+                                <span class="icon"><i class="fas fa-envelope"></i></span>
+                                <span class="text">Email</span>
+                            </a>
+                        </div>
+                        <div class="contact-grid contact-row-2">
+                            <a href="https://www.youtube.com/channel/UC1yQpYMYS6tbq-hn3oXis8g" class="email-button" target="_blank">
+                                <span class="icon"><i class="fab fa-youtube"></i></span>
+                                <span class="text">YouTube</span>
+                            </a>
+                            <a href="https://leetcode.com/u/floatedbloom/" class="github-button" target="_blank">
+                                <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="custom-icon"></span>
+                                <span class="text">LeetCode</span>
+                            </a>
+                            <a href="https://www.chess.com/member/chessmeister555" class="github-button" target="_blank">
+                                <span class="icon">♟</span>
+                                <span class="text">Chess.com</span>
+                            </a>
+                        </div>
                     </div>
 				</div>
 			</div>

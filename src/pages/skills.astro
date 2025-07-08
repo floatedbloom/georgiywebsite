@@ -11,7 +11,6 @@ description: "This is the skills page."
 <Layout title="Skills • George">
     <main>
         <head>
-            <meta name="viewport" content="initial-scale=1, width=device-width">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
             <title>{pageTitle}</title>
@@ -19,11 +18,98 @@ description: "This is the skills page."
                 #barGraph {
                     width: 100%;
                     max-width: 800px;
-                    height: 400px;
+                    height: 525px; /* 75% of current 700px (700 * 0.75 = 525) */
                     border-radius: 10px; /* Soft rounded corners */
                     padding: 10px;
                     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
                     box-shadow: 0px 1px 8px #ff9a9e; /* Soft glow */
+                }
+
+                /* Desktop-only height reduction for better fit */
+                @media (min-width: 1025px) {
+                    #barGraph {
+                        height: 400px; /* Reduced from 525px to fit better on desktop with header and buttons */
+                        margin-top: -3rem;
+                    }
+                }
+
+                /* Responsive chart sizing - 75% of current sizes */
+                @media (max-width: 768px) {
+                    #barGraph {
+                        height: 394px; /* 75% of current 525px (525 * 0.75 = 394) */
+                        max-width: 100%;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    #barGraph {
+                        height: 330px; /* 75% of current 440px (440 * 0.75 = 330) */
+                    }
+                }
+
+                /* Center the chart vertically on mobile */
+                @media (max-width: 480px) {
+                    .container {
+                        padding: 0.5rem;
+                        display: flex;
+                        flex-direction: column;
+                        min-height: 100vh;
+                        justify-content: center; /* Center content vertically */
+                    }
+                    
+                    .padded {
+                        padding: 0.5em;
+                        flex-shrink: 0;
+                    }
+                    
+                    .chart-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 1rem 0;
+                    }
+                    
+                    .bottom-pad {
+                        padding-bottom: 1em;
+                        flex-shrink: 0;
+                    }
+                }
+
+                /* Desktop layout optimization */
+                @media (min-width: 1025px) {
+                    .container {
+                        display: flex;
+                        flex-direction: column;
+                        min-height: calc(100vh - 80px); /* Account for bottom nav */
+                        justify-content: center;
+                        padding: 1rem;
+                        padding-bottom: 100px; /* Extra space for bottom nav */
+                    }
+                    
+                    .chart-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 1rem 0; /* Reduced margin for better fit */
+                    }
+                }
+
+                /* Center vertically on tablet too */
+                @media (max-width: 768px) and (min-width: 481px) {
+                    .container {
+                        display: flex;
+                        flex-direction: column;
+                        min-height: 100vh;
+                        justify-content: center;
+                        padding: 1rem;
+                    }
+                    
+                    .chart-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 1.5rem 0;
+                    }
                 }
                 .padded {
                     padding: 1em;
@@ -47,6 +133,25 @@ description: "This is the skills page."
                     text-align: center; /* Center text */
                     width: 150px; /* Fixed width for consistent button size */
                 }
+
+                /* Responsive button styling */
+                @media (max-width: 768px) {
+                    .custom-button {
+                        width: 120px;
+                        padding: 8px 12px;
+                        margin: 8px;
+                        font-size: 0.9em;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .custom-button {
+                        width: 100px;
+                        padding: 6px 10px;
+                        margin: 5px;
+                        font-size: 0.8em;
+                    }
+                }
                 .custom-button:hover {
                     background-color: #fad0c4;
                     color: #ffffffd5;
@@ -55,10 +160,10 @@ description: "This is the skills page."
         </head>
         <body>
             <div class="container">
-                <div class="padded">
-                    <h1><span class="text-gradient central">{pageTitle}</span></h1>
+                <div class="page-header">
+                    <h1><span class="text-gradient">{pageTitle}</span></h1>
                 </div>
-                <div>
+                <div class="chart-container">
                     <canvas id="barGraph"></canvas>
                 </div>
                 <div class="col-auto bottom-pad">
@@ -122,18 +227,27 @@ description: "This is the skills page."
                     if (myChart) {
                         myChart.destroy();
                     }
+                    
+                    // Check if mobile for responsive font sizing
+                    const isMobile = window.innerWidth <= 480;
+                    const isTablet = window.innerWidth <= 768;
+                    
                     myChart = new Chart(ctx, {
                         type: 'bar',
                         data: data,
                         options: {
+                            responsive: true,
+                            maintainAspectRatio: false, // Allow custom height
                             scales: {
                                 x: {
                                     ticks: {
                                         color: "#dff8ffd5",
                                         font: {
-                                            size: 14,
+                                            size: isMobile ? 10 : isTablet ? 12 : 14, // Smaller font to fit all labels horizontally
                                             weight: 'bold'
-                                        }
+                                        },
+                                        maxRotation: 0, // No rotation - keep all labels horizontal
+                                        minRotation: 0  // No rotation at all
                                     }
                                 },
                                 y: {
@@ -147,6 +261,11 @@ description: "This is the skills page."
                                 },
                                 tooltip: {
                                     enabled: false,
+                                }
+                            },
+                            elements: {
+                                bar: {
+                                    borderRadius: isMobile ? 8 : 4, // Larger border radius on mobile
                                 }
                             }
                         }
