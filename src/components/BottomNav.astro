@@ -1,199 +1,113 @@
 ---
 const links = [
-  { href: "/", label: "→" },
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
-  { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Work" },
-  { href: "/contact", label: "Contact" }
+  { href: "/", label: "🏠", title: "Home" },
+  { href: "/about", label: "❓", title: "About" },
+  { href: "/skills", label: "🛠️", title: "Skills" },
+  { href: "/projects", label: "📂", title: "Projects" },
+  { href: "/work", label: "🏢", title: "Work" }
 ]
+function segmentGraphemes(text: string) {
+  try {
+    const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+    return Array.from(seg.segment(text), s => s.segment);
+  } catch (e) {
+    return Array.from(text);
+  }
+}
 ---
 
+
+<nav class="bottom-nav fixed bottom-4 left-1/2 -translate-x-1/2 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md shadow-lg border border-white/20 dark:border-gray-700 py-1 px-2 rounded-full">
+	<ul class="flex m-0 p-0 list-none">
+		{links.map((link) => (
+			<li>
+				<a href={link.href} class="group flex flex-col items-center text-gray-700 dark:text-gray-200 no-underline hover:no-underline transition-transform px-4 hover:scale-105">
+					<span class="grid place-items-center w-10 h-10">
+						<span class="text-xl leading-none transition-transform duration-200 group-hover:scale-110">
+							{segmentGraphemes(link.label).map((char, i) => (
+								<span class="char" style={`--delay: ${i * 0.05}s`}>{char}</span>
+							))}
+						</span>
+					</span>
+					<span class="text-[12px] mt-1 text-gray-600 font-semibold dark:text-gray-100">{link.title}</span>
+				</a>
+			</li>
+		))}
+	</ul>
+</nav>
+
 <style>
-    #nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-        z-index: 1000;
-        background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-        backdrop-filter: blur(10px); /* Modern blur effect */
-        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-    }
+	.bottom-nav {
+		position: fixed !important;
+		bottom: 1rem !important;
+		left: 50vw !important;
+		transform: translateX(-50%) !important;
+		background: rgba(255, 255, 255, 0.92) !important;
+		backdrop-filter: none !important;
+		-webkit-backdrop-filter: none !important;
+		border: 1px solid rgba(168, 162, 158, 0.2) !important;
+		border-radius: 9999px !important;
+		z-index: 9999 !important;
+		padding: 0.25rem 0.5rem !important;
+		/* Force new stacking context to avoid parent transforms */
+		isolation: isolate !important;
+	}
 
-    /* Responsive navigation padding */
-    @media (max-width: 768px) {
-        #nav {
-            padding: 8px 0;
-        }
-    }
+	/* Move navigation to top on mobile */
+	@media (max-width: 768px) {
+		.bottom-nav {
+			top: 0 !important;
+			bottom: auto !important;
+			left: 0 !important;
+			right: 0 !important;
+			width: 100% !important;
+			transform: none !important;
+			border-radius: 0 !important;
+			background: rgba(255, 255, 255, 1) !important;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+		}
 
-    @media (max-width: 480px) {
-        #nav {
-            padding: 5px 0;
-        }
-    }
+		/* Distribute items evenly to prevent overflow */
+		.bottom-nav ul {
+			width: 100% !important;
+			justify-content: space-between !important;
+		}
 
-    .select-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 250px;
-    }
+		.bottom-nav li {
+			flex: 1 1 0 !important;
+			min-width: 0 !important;
+		}
 
-    .icon {
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    width: 0.75em;
-    transform: translateY(-50%);
-    }
+		.bottom-nav a {
+			width: 100% !important;
+			padding: 0.5rem 0 !important;
+		}
 
-    .label {
-    position: absolute;
-    bottom: 100%;
-    margin-bottom: 0.5rem;
-    }
+		.bottom-nav .text-\[12px\] {
+			font-size: 11px !important;
+			margin-top: 0.25rem !important;
+		}
+	}
 
-    .select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 100%;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    outline: none;
-    border: 2px solid lightgray;
-    border-radius: 0.25rem;
-    background-image: linear-gradient(to bottom, white, whitesmoke);
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: 700;
-    text-transform: capitalize;
+	.bottom-nav ul {
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none !important;
+	}
 
-    &:focus {
-        border-color: dodgerblue;
-    }
-    }
+	.bottom-nav li {
+		list-style: none !important;
+	}
 
-    .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    }
+	.bottom-nav a,
+	.bottom-nav .text-gray-600,
+	.bottom-nav .dark\:text-gray-100,
+	.bottom-nav .dark\:text-gray-200,
+	.bottom-nav span {
+		color: #111827 !important;
+	}
 
-    /* Responsive menu font size */
-    @media (max-width: 768px) {
-        .menu {
-            font-size: 1.2rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .menu {
-            font-size: 1rem;
-        }
-    }
-
-    .menu-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    color: white;
-    font-variation-settings: "wght" var(--normal);  
-    text-decoration: none;
-
-    &:hover {
-        font-variation-settings: "wght" var(--bold);
-    }
-    
-    .char {
-        --delay: calc(var(--char-index) * 0.024s);
-
-        display: inline-flex;
-        flex-direction: column;
-        letter-spacing: -0.05rem;
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        transition:
-        font-variation-settings var(--duration) var(--ease),
-        opacity var(--duration) var(--ease);
-    }
-
-    .whitespace {
-        width: 4px;
-    }
-
-    .char::before {
-        position: relative;
-        height: 0;
-        width: 100%;
-    }
-
-    .char::before,
-    .char::after {
-        pointer-events: none;
-        font-variation-settings: "wght" var(--bold);
-    }
-    }
-
-    /* Responsive menu link padding */
-    @media (max-width: 768px) {
-        .menu-link {
-            padding: 0.8rem 1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .menu-link {
-            padding: 0.6rem 0.8rem;
-        }
-    }
-
-    /* Responsive whitespace */
-    @media (max-width: 480px) {
-        .menu-link .whitespace {
-            width: 2px;
-        }
-    }
-
-    [data-animation="buoy"] .menu-link:hover .char {
-        transition-delay: var(--delay);
-        animation: buoy 1s var(--delay) ease-in-out infinite;
-    }
-
-    @keyframes buoy {
-        25% { transform: translateY(-6px) rotate(-5deg); }
-        50% { transform: translateY(0px); }
-        75% { transform: translateY(-6px) rotate(5deg); }
-    }
-
-    /* Reduce animation on smaller screens */
-    @media (max-width: 480px) {
-        @keyframes buoy {
-            25% { transform: translateY(-3px) rotate(-3deg); }
-            50% { transform: translateY(0px); }
-            75% { transform: translateY(-3px) rotate(3deg); }
-        }
-    }
+	.bottom-nav .shadow-lg {
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+	}
 </style>
-
-<nav id="nav" data-animation="buoy">
-    <ul class="menu">
-      {links.map((link) => (
-        <li class="menu-item">
-          <a href={link.href} class="menu-link">
-            {link.label.split("").map((char, i) => (
-              <span class="char text-gradient" style={`--delay: ${i * 0.05}s`}>{char}</span>
-            ))}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>

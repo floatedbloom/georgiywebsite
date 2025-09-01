@@ -13,11 +13,15 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="George Lapin" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<link rel="icon" type="image/x-icon" href="zhe.ico" />
 		<link rel="icon" href="/zhe.ico" type="image/png">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+		<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+		<link rel="stylesheet" href="/src/styles/tailwind.css" />
+		<link href="/timeline.min.css" rel="stylesheet" />
+		<script src="/timeline.js" is:inline></script>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -30,7 +34,7 @@ const { title } = Astro.props;
 	html, body {
 		margin: 0;
 		font-family: 'Roboto Slab', serif;
-		background: linear-gradient(315deg, rgb(52, 99, 96) 3%, rgb(20, 50, 96) 38%, rgb(20, 50, 96) 68%, rgb(0, 0, 0) 98%) ;
+		background: linear-gradient(315deg, #b8e1e0 3%, #a9bde3 38%, #a9bde3 68%, #2b2f3f 98%);
 		animation: gradient 15s ease infinite ;
 		background-size: 400% 400%;
 		background-attachment: fixed;
@@ -39,6 +43,10 @@ const { title } = Astro.props;
 		text-align: center;
 		position: relative;
 	}
+
+	/* Normalize between-element spacing across all pages (match index.astro) */
+	main :where(h1, h2, h3, h4, h5, h6, p, ul, ol) { margin-top: 0 !important; margin-bottom: 0 !important; }
+	main ul, main ol { padding-left: 1rem !important; }
 
 	/* Responsive design for mobile devices */
 	@media (max-width: 768px) {
@@ -53,18 +61,6 @@ const { title } = Astro.props;
 			/* Remove extra padding that was pushing content down */
 		}
 	}
-
-	/* @keyframes gradient {
-		0% {
-			background-position: 0% 0%;
-		}
-		50% {
-			background-position: 100% 100%;
-		}
-		100% {
-			background-position: 0% 0%;
-		}
-	} */
 
 	code {
 		font-family:
@@ -84,22 +80,14 @@ const { title } = Astro.props;
 	.content-container {
 		transition: filter 0.3s;
 	}
-	.close {
-		color: #aaa;
-		float: right;
-		font-size: 28px;
-		font-weight: bold;
-	}
-	.close:hover,
-	.close:focus {
-		color: rgb(255, 255, 255);
-		text-decoration: none;
-		cursor: pointer;
-	}
 	
 	:root {
-            --accent-gradient: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #f3e1e1);
+            --accent-gradient: linear-gradient(135deg, #ffd1dc, #ffe5ec, #e7f0ff, #e5fff7);
         }
+        
+	h1, h2, h3, .page-header h1 {
+		font-family: 'Poppins', 'Roboto Slab', serif;
+	}
         
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -144,100 +132,7 @@ const { title } = Astro.props;
 			background-position: 0% 50%;
 		}
 	}
-	.list-group {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		list-style-type: none;
-		padding: 0;
-		margin: 20px 0;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	}
-
-	.list-group-item {
-	display: block;
-		width: 100% !important;
-		padding: 30px !important;
-		margin: 0 !important;
-		text-decoration: none !important;
-		color: #FFFFF !important;
-		background-color: #333333 !important;
-		border-bottom: 1px solid #ddd !important;
-		transition: background-color 0.3s, color 0.3s !important;
-	}
-
-	/* Responsive list group items */
-	@media (max-width: 768px) {
-		.list-group-item {
-			padding: 20px !important;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.list-group-item {
-			padding: 15px !important;
-		}
-	}
-
-	.list-group-item:last-child {
-		border-bottom: none;
-	}
-
-	.list-group-item-action:hover, 
-		.list-group-item-action:focus {
-		background-color: #f0f0f0;
-	}
-
-	.list-group-item.active {
-		background-color: #007bff;
-		color: #fff;
-		font-weight: bold;
-		border-color: #007bff;
-	}
-
-	.list-group-item.active:hover, 
-	.list-group-item.active:focus {
-		background-color: #0056b3;
-	}
-	.box-thing {
-		border: 2px solid #000; /* Border around the text */
-		padding: 20px; /* Padding inside the box */
-		border-radius: 10px; /* Rounded corners */
-		background: linear-gradient(135deg, #40a073, #345f52); /* Background gradient */
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle 3D effect */
-		font-family: Arial, sans-serif; /* Font styling */
-		margin: 20px auto; /* Center the box and add margin */
-		width: 80%; /* Set the width of the box */
-		max-width: 600px; /* Maximum width of the box */
-		/* Justify the text */
-	}
-
-	/* Responsive box-thing */
-	@media (max-width: 768px) {
-		.box-thing {
-			width: 90%;
-			padding: 15px;
-			margin: 15px auto;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.box-thing {
-			width: 95%;
-			padding: 10px;
-			margin: 10px auto;
-		}
-	}
-
-
-	@keyframes gradientBG {
-		0% { background-position: 0% 50%; }
-		50% { background-position: 100% 50%; }
-		100% { background-position: 0% 50%; }
-	}
-
+	
 	a {
 		font-family: 'Lato', sans-serif;
 		color: rgb(237, 206, 241); /* Default link color */
@@ -258,72 +153,6 @@ const { title } = Astro.props;
 		outline: none; /* Remove outline on focus and active states */
 	}
 
-	/* Example: Underline on hover */
-	a.underline-on-hover:hover {
-		text-decoration: underline;
-	}
-
-	/* Example: Button style */
-	a.button {
-		display: inline-block;
-		padding: 10px 20px;
-		background-color: #007bff;
-		color: #fff;
-		text-decoration: none;
-		border-radius: 4px;
-		transition: background-color 0.3s ease;
-	}
-
-	a.button:hover {
-		background-color: #0056b3;
-	}
-	.black {
-		color:#000
-	}
-    .list {
-      text-align: center; /* Center the list items */
-      list-style-type: none; /* Remove default bullet points */
-      padding: 0;
-    }
-
-    .list li{
-      margin-bottom: 10px; /* Add some spacing between list items */
-    }
-
-    .list a {
-      text-decoration: none; /* Remove underline from links */
-      color: #634d31; /* Link color */
-      transition: color 0.3s ease; /* Smooth color transition on hover */
-    }
-
-    .list a:hover {
-      color: #2e2616; /* Darker color on hover */
-    }
-	.home-button {
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            z-index: 1000;
-	}
-	.homepage-button {
-		padding: 16px 32px;
-		background-color: rgb(60, 179, 113);
-		color: #fff;
-		border: none;
-		border-radius: 8px;
-		font-size: 1.2rem;
-		text-decoration: none;
-		transition: background-color 0.3s ease;
-		position: absolute;
-		top: 2%;
-		left: 1%;
-	}
-	.homepage-button:hover {
-		background-color: rgb(46, 139, 87);
-	}
-	.homepage-button:active {
-		transform: translateY(2px); /* Push button down slightly on click */
-	}
 	h1 {
 		line-height: 1.2; 
 		padding-bottom: 0.2em;
@@ -331,13 +160,6 @@ const { title } = Astro.props;
 	}
 	.text-center {
 		text-align: center;
-	}
-	.fullscreen-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		width: 100%;
 	}
 	.btn-custom {
 		font-size: 2.5rem; /* Adjust size as needed */
@@ -365,93 +187,11 @@ const { title } = Astro.props;
 		padding: 20px;
 		box-sizing: border-box;
 	}
-
-	.back-button {
-		font-size: 2.5rem;
-		padding: 2rem 4rem; 
-		margin: 1rem;
-	}
-
-	.back-button:active {
-		transform: translateY(2px);
-	}
-
+	
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
 		.central {
 			width: 90%;
-		}
-	}
-	.cool {
-		font: bold 3rem/1.2 sans-serif;
-		max-width: 20rem;
-
-		span {
-			color: var(--shadow);
-			display: inline-block;
-			position: relative;
-
-			// Setting the stagger "by hand". You have to know the number of children beforehand and loop through them all, or set staggers only for a number of first children. Or set it with js
-			@for $i from 1 through 10 {
-				&:nth-child(#{$i}) {
-					&::before,
-					&::after {
-						animation-delay: #{$i / 10}s;
-					}
-				}
-			}
-
-			// make the font black again if no animation is playing
-			@media (prefers-reduced-motion) {
-				color: var(--base);
-			}
-
-			// the magic, kinda
-			&::before {
-				animation: max-height .4s cubic-bezier(0.61, 1, 0.88, 1) 1 normal both;
-				color: var(--accent);
-			}
-			
-			&::after {
-				animation: max-width .7s cubic-bezier(0.61, 1, 0.88, 1) 1 normal both;
-				color: var(--base);
-			}
-			
-			&::before,
-			&::after {
-				// Using data attribute to avoid duplicated content in HTML. It has a very good support when used in the content property https://caniuse.com/mdn-css_types_attr
-				content: attr(data-text);
-				left: 0;
-				// The overflowing text is cut off
-				overflow: hidden;
-				position: absolute;
-				// Set the speak property to none, because we don't want screen readers to read every word in the paragraph twice. "Hello, hello"? No!
-				speak: none;
-
-				// In this case we just don't animate things, BUT we can maybe animate opacity only since reduced motion != no motion
-				@media (prefers-reduced-motion) {
-					animation: none;
-					content: "";
-				}
-			}
-		}
-	}
-
-	@keyframes max-width {
-		from {
-			max-width: 0;
-		}
-		to {
-			max-width: 100%;
-		}
-	}
-
-	@keyframes max-height {
-		from {
-			max-height: 0;
-		}
-		to {
-			max-height: 100%;
 		}
 	}
 
@@ -545,4 +285,25 @@ const { title } = Astro.props;
 			font-size: 1.2em;
 		}
 	}
+	.tech-icon {
+        font-size: 1.56rem;
+        margin-bottom: 0.195rem;
+        transition: transform 0.3s ease;
+    }
+
+    .tech-icon.emoji {
+        font-size: 1.365rem;
+        line-height: 1;
+    }
+
+    .astro-icon {
+        width: 1.56rem;
+        height: 1.56rem;
+    }
+
+    img.tech-icon {
+        width: 2.08rem;
+        height: 2.08rem;
+        object-fit: contain;
+    }
 </style>
