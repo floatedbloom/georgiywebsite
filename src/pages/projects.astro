@@ -225,4 +225,23 @@ description: "This is the projects page."
         }
     }
 </style>
-<script type="module" src="/src/scripts/embla.ts"></script>
+<script type="module">
+    import EmblaCarousel from 'https://esm.sh/embla-carousel@8'
+    import Autoplay from 'https://esm.sh/embla-carousel-autoplay@8'
+
+    const initializeEmbla = () => {
+        const viewport = document.querySelector('.embla__viewport')
+        if (!viewport) return
+        EmblaCarousel(
+            viewport,
+            { loop: true, align: 'start', slidesToScroll: 1, containScroll: 'trimSnaps' },
+            [Autoplay({ delay: 800, stopOnInteraction: false, stopOnMouseEnter: true })]
+        )
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeEmbla)
+    } else {
+        initializeEmbla()
+    }
+</script>
