@@ -1,5 +1,6 @@
 ---
 import BottomNav from '../components/BottomNav.astro';
+import '../styles/tailwind.css';
 
 interface Props {
 	title: string;
@@ -19,7 +20,6 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 		<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-		<link rel="stylesheet" href="/src/styles/tailwind.css" />
 		<link href="/timeline.min.css" rel="stylesheet" />
 		<script src="/timeline.js" is:inline></script>
 		<meta name="generator" content={Astro.generator} />
@@ -272,7 +272,7 @@ const { title } = Astro.props;
 			background-position: 0% 50%;
 		}
 	}
-
+	
 	/* Responsive text gradient sizing */
 	@media (max-width: 768px) {
 		.text-gradient {
